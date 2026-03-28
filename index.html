@@ -2,1261 +2,1185 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أوتو بارتس برو - سوق قطع الغيار المتقدم</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>تحدي الوقت - 6 ثيمات احترافية</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+        
         * {
-            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
-        .font-orbitron {
-            font-family: 'Orbitron', sans-serif;
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Tajawal', sans-serif;
+            transition: background 0.3s ease, color 0.2s ease;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        
+        /* Theme 1: Galaxy (Default) */
+        body.theme-galaxy {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+        }
+        body.theme-galaxy .game-container { background: transparent; }
+        
+        /* Theme 2: Ocean */
+        body.theme-ocean {
+            background: linear-gradient(135deg, #001f3f 0%, #005f73 50%, #0a9396 100%);
+            color: #fff;
+        }
+        body.theme-ocean .target-display { border-color: #94d2bd; background: rgba(148, 210, 189, 0.1); }
+        body.theme-ocean .target-label { color: #94d2bd; }
+        
+        /* Theme 3: Sunset */
+        body.theme-sunset {
+            background: linear-gradient(135deg, #ff4d4d 0%, #ff9f4a 50%, #ffe15d 100%);
+            color: #2d1b00;
+        }
+        body.theme-sunset .player-input, 
+        body.theme-sunset .team-name-input, 
+        body.theme-sunset .member-name-input { color: #2d1b00; background: rgba(255,255,240,0.8); border-color: #ff9f4a; }
+        body.theme-sunset .how-to-play { background: rgba(255, 200, 100, 0.2); border-color: #ffaa33; }
+        
+        /* Theme 4: Forest */
+        body.theme-forest {
+            background: linear-gradient(135deg, #0b3b2f 0%, #1b5e3f 50%, #2e7d64 100%);
+            color: #f0f7e6;
+        }
+        body.theme-forest .target-display { border-color: #c5e0b4; background: rgba(197, 224, 180, 0.1); }
+        body.theme-forest .target-label { color: #d4e6b0; }
+        body.theme-forest .game-btn.start-btn { background: linear-gradient(135deg, #4caf50, #2e7d32); color: #fff; }
+        
+        /* Theme 5: Midnight */
+        body.theme-midnight {
+            background: linear-gradient(135deg, #0b0b1a 0%, #1a1a2f 50%, #16213e 100%);
+            color: #e0e0ff;
+        }
+        body.theme-midnight .timer-display.running { color: #bb86fc; text-shadow: 0 0 20px #bb86fc; }
+        body.theme-midnight .target-time { color: #bb86fc; }
+        body.theme-midnight .mode-btn.active { border-color: #bb86fc; color: #bb86fc; background: rgba(187,134,252,0.2); }
+        
+        /* Theme 6: Clean White (Professional) */
+        body.theme-clean {
+            background: #f8f9fa;
+            color: #212529;
+        }
+        body.theme-clean .game-container { background: transparent; }
+        body.theme-clean .how-to-play {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        body.theme-clean .how-to-play h2 { color: #2c3e66; }
+        body.theme-clean .how-to-play ol { color: #495057; }
+        body.theme-clean .registration h2 { color: #2c3e66; }
+        body.theme-clean .mode-btn {
+            background: #ffffff;
+            border-color: #dee2e6;
+            color: #495057;
+        }
+        body.theme-clean .mode-btn.active {
+            border-color: #2c3e66;
+            background: #e9ecef;
+            color: #2c3e66;
+        }
+        body.theme-clean .player-input-row, 
+        body.theme-clean .team-row {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        body.theme-clean .player-input, 
+        body.theme-clean .team-name-input, 
+        body.theme-clean .member-name-input {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            color: #212529;
+        }
+        body.theme-clean .player-input:focus, 
+        body.theme-clean .team-name-input:focus, 
+        body.theme-clean .member-name-input:focus {
+            border-color: #2c3e66;
+            outline: none;
+        }
+        body.theme-clean .start-game-btn {
+            background: linear-gradient(135deg, #2c3e66, #1a2a44);
+            color: #ffffff;
+        }
+        body.theme-clean .current-player {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+        }
+        body.theme-clean .target-display {
+            background: #ffffff;
+            border: 2px solid #e9ecef;
+        }
+        body.theme-clean .target-label { color: #6c757d; }
+        body.theme-clean .target-time { color: #2c3e66; text-shadow: none; }
+        body.theme-clean .timer-display { color: #2c3e66; }
+        body.theme-clean .timer-display.running { color: #28a745; text-shadow: none; }
+        body.theme-clean .timer-display.stopped { color: #dc3545; text-shadow: none; }
+        body.theme-clean .start-btn { background: linear-gradient(135deg, #28a745, #218838); color: #fff; }
+        body.theme-clean .stop-btn { background: linear-gradient(135deg, #dc3545, #c82333); color: #fff; }
+        body.theme-clean .leaderboard {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+        }
+        body.theme-clean .leaderboard-item {
+            background: #f8f9fa;
+            border-right-color: #2c3e66 !important;
+        }
+        body.theme-clean .leaderboard h3 { color: #2c3e66; }
+        body.theme-clean .status-message { color: #6c757d; }
+        body.theme-clean .round-indicator { color: #2c3e66; }
+        body.theme-clean .ai-indicator { color: #6c757d; }
+        body.theme-clean .team-mode-indicator, 
+        body.theme-clean .ai-mode-indicator {
+            background: #e9ecef;
+            border-color: #dee2e6;
+            color: #495057;
+        }
+        body.theme-clean .winner-announcement {
+            background: #f8f9fa;
+            border-color: #ffc107;
+        }
+        body.theme-clean .points-badge {
+            background: linear-gradient(135deg, #ffc107, #e0a800);
+            color: #212529;
+        }
+        body.theme-clean .final-score-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+        }
+        body.theme-clean .delete-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+        
+        .game-container {
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 15px;
+            max-width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Theme Selector on Top */
+        .theme-selector-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(12px);
+            border-radius: 50px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(255,255,255,0.2);
+            flex-shrink: 0;
+        }
+        
+        body.theme-clean .theme-selector-container {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .theme-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        body.theme-clean .theme-option {
+            border: 2px solid #dee2e6;
+        }
+        
+        .theme-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-option.active {
+            border: 3px solid gold;
+            transform: scale(1.1);
+            box-shadow: 0 0 12px gold;
+        }
+        
+        body.theme-clean .theme-option.active {
+            border: 3px solid #2c3e66;
+            box-shadow: 0 0 12px rgba(44,62,102,0.3);
+        }
+        
+        .theme-galaxy-color { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+        .theme-ocean-color { background: linear-gradient(135deg, #001f3f, #005f73, #0a9396); }
+        .theme-sunset-color { background: linear-gradient(135deg, #ff4d4d, #ff9f4a, #ffe15d); }
+        .theme-forest-color { background: linear-gradient(135deg, #0b3b2f, #1b5e3f, #2e7d64); }
+        .theme-midnight-color { background: linear-gradient(135deg, #0b0b1a, #1a1a2f, #16213e); }
+        .theme-clean-color { background: linear-gradient(135deg, #f8f9fa, #e9ecef, #dee2e6); border: 1px solid #ced4da; }
+        
+        h1 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, #00f5ff, #ff00ff, #ffd700);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            animation: shine 3s linear infinite;
+            font-weight: 900;
+            flex-shrink: 0;
         }
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        
+        body.theme-clean h1 {
+            background: linear-gradient(90deg, #2c3e66, #1a2a44, #2c3e66);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .card-hover {
+        
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        body.theme-clean .subtitle {
+            color: #6c757d;
+        }
+        
+        .how-to-play {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        .how-to-play h2 {
+            color: #ffd700;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        body.theme-clean .how-to-play h2 {
+            color: #2c3e66;
+        }
+        
+        .how-to-play ol {
+            padding-right: 18px;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        body.theme-clean .how-to-play ol {
+            color: #495057;
+        }
+        
+        .how-to-play li {
+            margin-bottom: 4px;
+        }
+        
+        .registration {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .registration h2 {
+            color: #00f5ff;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .mode-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        .mode-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
             transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        
+        .mode-btn.active {
+            border-color: #00f5ff;
+            background: rgba(0, 245, 255, 0.2);
+            color: #00f5ff;
         }
-        .search-glow:focus {
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+        
+        .players-input, .teams-input, .single-input {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding-right: 5px;
         }
-        .vin-input {
-            letter-spacing: 0.1em;
+        
+        .players-input.hidden, .teams-input.hidden, .single-input.hidden {
+            display: none;
+        }
+        
+        .player-input-row, .team-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .team-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 6px;
+        }
+        
+        .team-header {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .team-members {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-right: 36px;
+        }
+        
+        .member-input {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .member-number {
+            font-size: 0.7rem;
+            color: #888;
+            width: 40px;
+        }
+        
+        .player-number, .team-number {
+            background: linear-gradient(135deg, #00f5ff, #00a8ff);
+            color: #0f0c29;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        
+        .team-number {
+            background: linear-gradient(135deg, #ff00ff, #ff0066);
+        }
+        
+        .player-input, .team-name-input, .member-name-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        
+        .team-name-input {
+            font-weight: 700;
+            border-color: rgba(255, 0, 255, 0.4);
+        }
+        
+        .member-name-input {
+            font-size: 0.85rem;
+            padding: 8px 10px;
+        }
+        
+        .player-input:focus, .team-name-input:focus, .member-name-input:focus {
+            border-color: #00f5ff;
+        }
+        
+        .color-picker {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .delete-btn {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff4444;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .delete-btn:hover {
+            background: rgba(255, 68, 68, 0.4);
+        }
+        
+        .delete-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .add-player-btn, .add-team-btn, .add-member-btn {
+            padding: 10px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            background: transparent;
+            color: #888;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        .add-member-btn {
+            padding: 8px;
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+            margin-right: 36px;
+        }
+        
+        .start-game-btn {
+            padding: 14px;
+            background: linear-gradient(135deg, #00f5ff, #00a8ff);
+            color: #0f0c29;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .game-section {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+        }
+        
+        .game-section.active {
+            display: flex;
+        }
+        
+        .round-indicator {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #00f5ff;
+            font-weight: 700;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        .current-player {
+            text-align: center;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        .current-player-label {
+            font-size: 0.75rem;
+            color: #888;
+        }
+        
+        .current-player-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .current-player-team {
+            font-size: 0.85rem;
+            color: #ff00ff;
+            margin-top: 3px;
+        }
+        
+        .ai-indicator {
+            font-size: 0.8rem;
+            color: #ff00ff;
+            margin-top: 3px;
+            font-style: italic;
+        }
+        
+        .target-display {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+        
+        .target-label {
+            font-size: 0.8rem;
+            color: #ffd700;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .part-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        
+        .target-time {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
-        .category-card {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        
+        .timer-display {
+            font-size: 3.5rem;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            font-family: 'Courier New', monospace;
+            flex-shrink: 0;
         }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        
+        .timer-display.running {
+            color: #00f5ff;
+            text-shadow: 0 0 30px rgba(0, 245, 255, 0.6);
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        
+        .timer-display.stopped {
+            color: #ff00ff;
+            text-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
         }
-        .gear-spin {
-            animation: spin 20s linear infinite;
+        
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
         }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        
+        .game-btn {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s;
+            touch-action: manipulation;
         }
-        .tab-active {
-            border-bottom: 3px solid #6366f1;
-            color: #6366f1;
+        
+        .game-btn:active {
+            transform: scale(0.98);
         }
-        .loader {
-            border-top-color: #6366f1;
-            -webkit-animation: spinner 1.5s linear infinite;
-            animation: spinner 1.5s linear infinite;
+        
+        .start-btn {
+            background: linear-gradient(135deg, #00f5ff, #00a8ff);
+            color: #0f0c29;
         }
-        @keyframes spinner {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        
+        .stop-btn {
+            background: linear-gradient(135deg, #ff00ff, #ff0066);
+            color: #fff;
         }
-        .glass-effect {
+        
+        .game-btn:disabled {
+            opacity: 0.4;
+        }
+        
+        .status-message {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff;
+            padding: 10px;
+            flex-shrink: 0;
+        }
+        
+        .results-section {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .results-section.active {
+            display: flex;
+        }
+        
+        .results-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+        
+        .winner-announcement {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+            border: 2px solid #ffd700;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+            animation: pulse-winner 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-winner {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+        
+        .winner-announcement h2 {
+            color: #ffd700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .winner-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+        
+        .points-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        
+        .final-scores {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .final-score-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .final-score-card.winner {
+            border: 2px solid #ffd700;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+        }
+        
+        .final-score-card.ai-card {
+            border: 2px solid rgba(255, 0, 255, 0.3);
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(255, 255, 255, 0.05));
+        }
+        
+        .points-sticker {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #000;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff00ff, #ff0066);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-right: 5px;
+        }
+        
+        .final-score-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+        }
+        
+        .final-score-time {
+            font-size: 0.7rem;
+            color: #888;
+        }
+        
+        .final-score-points {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffd700;
+        }
+        
+        .leaderboard {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        
+        .leaderboard h3 {
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-right: 3px solid transparent;
+            position: relative;
+        }
+        
+        .leaderboard-item.ai-item {
+            border-right-color: #ff00ff;
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(255, 255, 255, 0.05));
+        }
+        
+        .leaderboard-rank {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-left: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .rank-1 { background: linear-gradient(135deg, #ffd700, #ffaa00); color: #000; }
+        .rank-2 { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); color: #000; }
+        .rank-3 { background: linear-gradient(135deg, #cd7f32, #b87333); color: #fff; }
+        .rank-other { background: rgba(255, 255, 255, 0.1); color: #fff; }
+        
+        .leaderboard-info {
+            flex: 1;
+        }
+        
+        .leaderboard-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .leaderboard-stats {
+            font-size: 0.7rem;
+            color: #888;
+        }
+        
+        .leaderboard-points {
+            text-align: left;
+            font-weight: 700;
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-shrink: 0;
+        }
+        
+        .next-btn, .reset-btn, .back-btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        
+        .next-btn {
+            background: linear-gradient(135deg, #00f5ff, #00a8ff);
+            color: #0f0c29;
+        }
+        
+        .reset-btn {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        /* RTL Specific adjustments */
-        .mr-2 { margin-left: 0.5rem; margin-right: 0; }
-        .mr-3 { margin-left: 0.75rem; margin-right: 0; }
-        .mr-4 { margin-left: 1rem; margin-right: 0; }
-        .ml-2 { margin-right: 0.5rem; margin-left: 0; }
-        .ml-4 { margin-right: 1rem; margin-left: 0; }
-        .space-x-2 > * + * { margin-right: 0.5rem; margin-left: 0; }
-        .space-x-3 > * + * { margin-right: 0.75rem; margin-left: 0; }
-        .space-x-4 > * + * { margin-right: 1rem; margin-left: 0; }
-        .space-x-6 > * + * { margin-right: 1.5rem; margin-left: 0; }
-        .space-x-8 > * + * { margin-right: 2rem; margin-left: 0; }
-        .fa-arrow-right { transform: scaleX(-1); }
-        .fa-arrow-left { transform: scaleX(-1); }
+        
+        .back-btn {
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff4444;
+            border: 1px solid rgba(255, 68, 68, 0.3);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .team-mode-indicator, .ai-mode-indicator {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(255, 0, 255, 0.1));
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #ff00ff;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        .ai-thinking {
+            display: none;
+            text-align: center;
+            color: #ff00ff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            animation: blink 1s infinite;
+        }
+        
+        .ai-thinking.show {
+            display: block;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .sound-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+        
+        .sound-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        body.theme-clean .sound-btn {
+            background: #ffffff;
+            color: #2c3e66;
+            border: 1px solid #dee2e6;
+        }
+        
+        .sound-btn.muted {
+            opacity: 0.5;
+        }
+        
+        .game-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-shrink: 0;
+        }
+        
+        .game-controls .back-btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .theme-selector-container { gap: 8px; padding: 6px 10px; }
+            .theme-option { width: 32px; height: 32px; }
+        }
+        
+        /* Additional step highlight */
+        .additional-step {
+            background: rgba(255, 215, 0, 0.2);
+            border-right: 3px solid #ffd700;
+            padding-right: 8px;
+            margin: 5px 0;
+        }
+        body.theme-clean .additional-step {
+            background: rgba(44, 62, 102, 0.08);
+            border-right-color: #2c3e66;
+        }
     </style>
-<base target="_blank">
 </head>
-<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-lg transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-cog gear-spin text-white text-xl"></i>
-                    </div>
-                    <span class="font-orbitron text-2xl font-bold text-gray-900">Auto<span class="text-indigo-600">Parts</span> Pro</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#search-section" class="text-gray-700 hover:text-indigo-600 font-medium transition">البحث عن قطع الغيار</a>
-                    <a href="#catalog" class="text-gray-700 hover:text-indigo-600 font-medium transition">الكتالوج</a>
-                    <a href="#compatibility" class="text-gray-700 hover:text-indigo-600 font-medium transition">فحص VIN</a>
-                    <a href="#brands" class="text-gray-700 hover:text-indigo-600 font-medium transition">الماركات</a>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                    <button class="relative p-2 text-gray-600 hover:text-indigo-600 transition" onclick="toggleCart()">
-                        <i class="fas fa-shopping-cart text-xl"></i>
-                        <span id="cart-count" class="absolute -top-1 -left-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                    </button>
-                    <button class="md:hidden p-2 text-gray-600" onclick="toggleMobileMenu()">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                    <button class="hidden md:block px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition">
-                        تسجيل الدخول
-                    </button>
-                </div>
-            </div>
+<body class="theme-galaxy">
+    <div class="sound-toggle">
+        <button class="sound-btn" id="soundBtn" onclick="toggleSound()">🔊</button>
+    </div>
+    
+    <!-- Theme Selector on Top -->
+    <div class="theme-selector-container">
+        <div class="theme-option theme-galaxy-color" onclick="changeTheme('galaxy')" title="جالاكسي"></div>
+        <div class="theme-option theme-ocean-color" onclick="changeTheme('ocean')" title="المحيط"></div>
+        <div class="theme-option theme-sunset-color" onclick="changeTheme('sunset')" title="غروب الشمس"></div>
+        <div class="theme-option theme-forest-color" onclick="changeTheme('forest')" title="الغابة"></div>
+        <div class="theme-option theme-midnight-color" onclick="changeTheme('midnight')" title="منتصف الليل"></div>
+        <div class="theme-option theme-clean-color" onclick="changeTheme('clean')" title="نظيف احترافي"></div>
+    </div>
+    
+    <div class="game-container">
+        <h1>⏱️ تحدي الوقت</h1>
+        <p class="subtitle">من الأقرب للهدف؟</p>
+        
+        <div class="how-to-play" id="howToPlay">
+            <h2>📋 كيفية اللعب</h2>
+            <ol>
+                <li>اختر وضع: فردي أو لاعبين أو فرق</li>
+                <li class="additional-step"><strong>📱 ضع جوالك في المنتصف بين اللاعبين</strong></li>
+                <li>في وضع الفردي: العب ضد الذكاء الاصطناعي</li>
+                <li>في وضع الفرق: اختر عدد اللاعبين في كل فريق</li>
+                <li>10 جولات - كل جولة هدف مختلف</li>
+                <li>اضغط "ابدأ" ثم "قف" عند الهدف</li>
+                <li>الأقرب للهدف يفوز بالنقطة</li>
+            </ol>
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 pt-2 pb-4 space-y-2">
-                <a href="#search-section" class="block py-2 text-gray-700">البحث عن قطع الغيار</a>
-                <a href="#catalog" class="block py-2 text-gray-700">الكتالوج</a>
-                <a href="#compatibility" class="block py-2 text-gray-700">فحص VIN</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-gradient min-h-screen flex items-center pt-20 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-20 right-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
-            <div class="absolute top-40 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 2s"></div>
-            <div class="absolute -bottom-8 right-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 4s"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-white space-y-6 order-2 lg:order-1">
-                    <div class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-4">
-                        <i class="fas fa-check-circle text-green-400 mr-2"></i>أكثر من 2 مليون قطعة غيار في المخزون
-                    </div>
-                    <h1 class="font-bold text-5xl lg:text-7xl leading-tight">
-                        اعثر على <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">قطع الغيار المثالية</span> لسيارتك
-                    </h1>
-                    <p class="text-xl text-gray-300 leading-relaxed">
-                        ابحث برقم الهيكل VIN، أو حسب السيارة، أو رقم القطعة. احصل على تحقق فوري من التوافق وشحن سريع لجميع أنحاء العالم.
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <button onclick="scrollToSection('search-section')" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition transform">
-                            ابدأ البحث <i class="fas fa-arrow-left mr-2"></i>
-                        </button>
-                        <button onclick="scrollToSection('how-it-works')" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full font-bold text-lg hover:bg-white/20 transition">
-                            كيف يعمل
-                        </button>
-                    </div>
-                    <div class="flex items-center space-x-6 pt-6 text-sm text-gray-400">
-                        <span><i class="fas fa-shield-alt mr-2"></i>دفع آمن</span>
-                        <span><i class="fas fa-truck mr-2"></i>شحن مجاني فوق 99$</span>
-                        <span><i class="fas fa-undo mr-2"></i>إرجاع خلال 30 يوم</span>
-                    </div>
-                </div>
-                <div class="relative order-1 lg:order-2">
-                    <div class="relative z-10 animate-float">
-                        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80" alt="محرك السيارة" class="rounded-2xl shadow-2xl border border-white/10">
-                        <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-check text-green-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-gray-900">توافق مضمون</p>
-                                    <p class="text-sm text-gray-500">ضمان 100% للملاءمة</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search Section with Tabs -->
-    <section id="search-section" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="font-bold text-4xl mb-4">ابحث بطريقتك</h2>
-                <p class="text-gray-600 text-lg">طرق بحث متعددة للعثور على ما تحتاجه بالضبط</p>
-            </div>
-
-            <!-- Search Tabs -->
-            <div class="bg-gray-100 rounded-2xl p-2 mb-8 flex flex-wrap justify-center gap-2">
-                <button onclick="switchTab('vin')" id="tab-vin" class="tab-btn px-6 py-3 rounded-xl font-medium transition-all duration-300 bg-white shadow-md text-indigo-600">
-                    <i class="fas fa-barcode mr-2"></i>البحث برقم VIN
-                </button>
-                <button onclick="switchTab('vehicle')" id="tab-vehicle" class="tab-btn px-6 py-3 rounded-xl font-medium transition-all duration-300 text-gray-600 hover:text-indigo-600">
-                    <i class="fas fa-car mr-2"></i>حسب السيارة
-                </button>
-                <button onclick="switchTab('part')" id="tab-part" class="tab-btn px-6 py-3 rounded-xl font-medium transition-all duration-300 text-gray-600 hover:text-indigo-600">
-                    <i class="fas fa-search mr-2"></i>رقم القطعة
-                </button>
-                <button onclick="switchTab('category')" id="tab-category" class="tab-btn px-6 py-3 rounded-xl font-medium transition-all duration-300 text-gray-600 hover:text-indigo-600">
-                    <i class="fas fa-th-large mr-2"></i>حسب الفئة
-                </button>
-            </div>
-
-            <!-- VIN Search Panel -->
-            <div id="panel-vin" class="search-panel bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-                <div class="text-center mb-6">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-barcode text-3xl text-indigo-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">أدخل رقم الهيكل VIN</h3>
-                    <p class="text-gray-600">اعثر على قطع غيار مضمونة لتناسب سيارتك بالضبط</p>
-                </div>
-                <div class="max-w-2xl mx-auto">
-                    <div class="relative">
-                        <input type="text" id="vin-input" placeholder="مثال: 1HGCM82633A123456" maxlength="17" 
-                               class="vin-input w-full px-6 py-5 text-xl border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none search-glow transition text-center font-mono tracking-widest"
-                               oninput="this.value = this.value.toUpperCase().replace(/[^A-HJ-NPR-Z0-9]/g, '')">
-                        <button onclick="searchByVIN()" id="vin-search-btn" class="absolute left-2 top-2 bottom-2 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition">
-                            بحث
-                        </button>
-                    </div>
-                    <p class="text-center text-sm text-gray-500 mt-3">رقم VIN موجود عادةً على لوحة القيادة أو باب السائق</p>
-                </div>
-                
-                <!-- Loading State -->
-                <div id="vin-loading" class="hidden mt-6 text-center">
-                    <div class="inline-block w-12 h-12 border-4 border-gray-200 border-t-indigo-600 rounded-full loader"></div>
-                    <p class="mt-2 text-gray-600">جاري فك تشفير رقم VIN...</p>
-                </div>
-
-                <!-- Error State -->
-                <div id="vin-error" class="hidden mt-6 bg-red-50 border border-red-200 rounded-xl p-4 text-center">
-                    <i class="fas fa-exclamation-circle text-red-500 text-2xl mb-2"></i>
-                    <p class="text-red-700" id="vin-error-text">لم يتم العثور على بيانات لهذا الرقم</p>
-                </div>
-
-                <!-- VIN Result -->
-                <div id="vin-result" class="hidden mt-6">
-                    <div class="bg-green-50 border border-green-200 rounded-xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-check-circle text-green-600 text-3xl"></i>
-                                <div>
-                                    <p class="font-bold text-green-900 text-lg" id="vehicle-title">جاري التحميل...</p>
-                                    <p class="text-sm text-green-700" id="vehicle-vin">VIN: <span></span></p>
-                                </div>
-                            </div>
-                            <span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm font-medium">مؤكد</span>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 pt-4 border-t border-green-200">
-                            <div class="text-center">
-                                <p class="text-xs text-green-600 mb-1">السنة</p>
-                                <p class="font-bold text-green-900" id="res-year">-</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-xs text-green-600 mb-1">الشركة</p>
-                                <p class="font-bold text-green-900" id="res-make">-</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-xs text-green-600 mb-1">الموديل</p>
-                                <p class="font-bold text-green-900" id="res-model">-</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-xs text-green-600 mb-1">المحرك</p>
-                                <p class="font-bold text-green-900" id="res-engine">-</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 p-3 bg-white/50 rounded-lg">
-                            <p class="text-sm text-green-800 flex items-center">
-                                <i class="fas fa-info-circle mr-2"></i>
-                                <span id="res-plant">مصنع التجميع: </span>
-                            </p>
-                        </div>
-
-                        <button onclick="showCompatibleParts()" class="w-full mt-4 py-3 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition">
-                            عرض قطع الغيار المتوافقة <i class="fas fa-arrow-left mr-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vehicle Search Panel -->
-            <div id="panel-vehicle" class="search-panel hidden bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-                <div class="grid md:grid-cols-4 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">السنة</label>
-                        <select id="year-select" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" onchange="updateMakes()">
-                            <option value="">اختر السنة</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">الشركة</label>
-                        <select id="make-select" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" disabled onchange="updateModels()">
-                            <option value="">اختر الشركة</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">الموديل</label>
-                        <select id="model-select" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" disabled onchange="updateEngines()">
-                            <option value="">اختر الموديل</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">المحرك</label>
-                        <select id="engine-select" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" disabled>
-                            <option value="">اختر المحرك</option>
-                        </select>
-                    </div>
-                </div>
-                <button onclick="searchByVehicle()" class="w-full mt-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition transform hover:scale-[1.02]">
-                    البحث عن قطع الغيار لهذه السيارة
-                </button>
-            </div>
-
-            <!-- Part Number Search -->
-            <div id="panel-part" class="search-panel hidden bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-                <div class="max-w-2xl mx-auto">
-                    <div class="relative">
-                        <input type="text" placeholder="أدخل رقم القطعة الأصلي أو التجاري" 
-                               class="w-full px-6 py-5 text-lg border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none search-glow transition">
-                        <button onclick="searchByPartNumber()" class="absolute left-2 top-2 bottom-2 px-8 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition">
-                            بحث
-                        </button>
-                    </div>
-                    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <i class="fas fa-cog text-2xl text-gray-400 mb-2"></i>
-                            <p class="text-sm font-medium">أرقام OEM</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <i class="fas fa-industry text-2xl text-gray-400 mb-2"></i>
-                            <p class="text-sm font-medium">قطع تجارية</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <i class="fas fa-barcode text-2xl text-gray-400 mb-2"></i>
-                            <p class="text-sm font-medium">رموز SKU</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <i class="fas fa-tags text-2xl text-gray-400 mb-2"></i>
-                            <p class="text-sm font-medium">بدائل</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Category Search -->
-            <div id="panel-category" class="search-panel hidden bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <button onclick="searchByCategory('brakes')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-circle-notch text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">فرامل</p>
-                    </button>
-                    <button onclick="searchByCategory('engine')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-cog text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">محرك</p>
-                    </button>
-                    <button onclick="searchByCategory('suspension')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-compress-arrows-alt text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">معلق</p>
-                    </button>
-                    <button onclick="searchByCategory('electrical')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-bolt text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">كهربائي</p>
-                    </button>
-                    <button onclick="searchByCategory('body')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-car-crash text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">هيكل خارجي</p>
-                    </button>
-                    <button onclick="searchByCategory('transmission')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-tachometer-alt text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">ناقل حركة</p>
-                    </button>
-                    <button onclick="searchByCategory('interior')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-chair text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">داخلي</p>
-                    </button>
-                    <button onclick="searchByCategory('exhaust')" class="p-6 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition group text-center">
-                        <i class="fas fa-wind text-4xl text-gray-400 group-hover:text-indigo-600 mb-3 transition"></i>
-                        <p class="font-medium">عادم</p>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Categories -->
-    <section id="catalog" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="font-bold text-4xl mb-2">الفئات الشائعة</h2>
-                    <p class="text-gray-600">تصفح أكثر قطع الغيار طلباً</p>
-                </div>
-                <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
-                    عرض الكل <i class="fas fa-arrow-left mr-2"></i>
-                </a>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Brake System -->
-                <div class="category-card rounded-2xl p-6 text-white card-hover cursor-pointer group" onclick="showCategoryParts('brakes')">
-                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
-                        <i class="fas fa-circle-notch text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">نظام الفرامل</h3>
-                    <p class="text-gray-300 text-sm mb-4">فحمات، أقراص، كليبرز، خراطيم</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold">2,450+</span>
-                        <i class="fas fa-arrow-left opacity-0 group-hover:opacity-100 transition"></i>
-                    </div>
-                </div>
-
-                <!-- Engine Parts -->
-                <div class="category-card rounded-2xl p-6 text-white card-hover cursor-pointer group" onclick="showCategoryParts('engine')">
-                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
-                        <i class="fas fa-cog text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">قطع المحرك</h3>
-                    <p class="text-gray-300 text-sm mb-4">مكابس، جوايط، تروس، فلاتر</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold">5,200+</span>
-                        <i class="fas fa-arrow-left opacity-0 group-hover:opacity-100 transition"></i>
-                    </div>
-                </div>
-
-                <!-- Suspension -->
-                <div class="category-card rounded-2xl p-6 text-white card-hover cursor-pointer group" onclick="showCategoryParts('suspension')">
-                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
-                        <i class="fas fa-compress-arrows-alt text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">المعلق</h3>
-                    <p class="text-gray-300 text-sm mb-4">مساعدات، مخمدات، ذراع تحكم</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold">1,800+</span>
-                        <i class="fas fa-arrow-left opacity-0 group-hover:opacity-100 transition"></i>
-                    </div>
-                </div>
-
-                <!-- Electrical -->
-                <div class="category-card rounded-2xl p-6 text-white card-hover cursor-pointer group" onclick="showCategoryParts('electrical')">
-                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
-                        <i class="fas fa-bolt text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">الكهرباء</h3>
-                    <p class="text-gray-300 text-sm mb-4">دينامو، سلف، حساسات</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold">3,100+</span>
-                        <i class="fas fa-arrow-left opacity-0 group-hover:opacity-100 transition"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parts Results Section (Dynamic) -->
-    <section id="parts-results" class="py-20 bg-white hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                <div>
-                    <h2 id="results-title" class="font-bold text-3xl mb-2">نتائج البحث</h2>
-                    <p id="results-subtitle" class="text-gray-600">عرض قطع الغيار المتوافقة مع سيارتك</p>
-                </div>
-                <div class="flex gap-3">
-                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                        <option>الترتيب: الأكثر صلة</option>
-                        <option>السعر: من الأقل للأعلى</option>
-                        <option>السعر: من الأعلى للأقل</option>
-                        <option>الأعلى تقييماً</option>
-                    </select>
-                    <button onclick="toggleFilters()" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                        <i class="fas fa-filter mr-2"></i>فلترة
-                    </button>
-                </div>
-            </div>
-
-            <!-- Filters Panel -->
-            <div id="filters-panel" class="hidden mb-8 bg-gray-50 rounded-xl p-6">
-                <div class="grid md:grid-cols-4 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">نطاق السعر</label>
-                        <input type="range" class="w-full" min="0" max="1000" value="500">
-                        <div class="flex justify-between text-sm text-gray-600 mt-1">
-                            <span>$0</span>
-                            <span>$1000+</span>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">الماركة</label>
-                        <div class="space-y-2">
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> OEM</label>
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> Bosch</label>
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> Denso</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">الحالة</label>
-                        <div class="space-y-2">
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> جديد</label>
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> مجدد</label>
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> مستعمل</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">الضمان</label>
-                        <div class="space-y-2">
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> مدى الحياة</label>
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> سنة</label>
-                            <label class="flex items-center"><input type="checkbox" class="ml-2 rounded text-indigo-600"> 90 يوم</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Parts Grid -->
-            <div id="parts-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Parts will be dynamically inserted here -->
-            </div>
-
-            <div class="mt-12 text-center">
-                <button class="px-8 py-3 border-2 border-indigo-600 text-indigo-600 rounded-full font-medium hover:bg-indigo-600 hover:text-white transition">
-                    تحميل المزيد
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIN Decoder Feature -->
-    <section id="compatibility" class="py-20 bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-6">
-                        <i class="fas fa-shield-alt mr-2"></i>ضمان 100% للملاءمة
-                    </div>
-                    <h2 class="font-bold text-4xl mb-6">فك تشفير VIN والتحقق من التوافق</h2>
-                    <p class="text-xl text-indigo-200 mb-8 leading-relaxed">
-                        نظام فك تشفير VIN المتقدم يضمن أن كل قطعة تطلبها تتطابق تماماً مع مواصفات سيارتك. لا مزيد من الإرجاع، لا مزيد من الصداع.
-                    </p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center space-x-3">
-                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-sm"></i>
-                            </div>
-                            <span>البحث الفوري عن مواصفات المركبة</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-sm"></i>
-                            </div>
-                            <span>التحقق الدقيق من الفئة والخيارات</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-sm"></i>
-                            </div>
-                            <span>تنبيهات الاستدعاء والنشرات الخدمية</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-sm"></i>
-                            </div>
-                            <span>اقتراحات قطع الغيار البديلة</span>
-                        </li>
-                    </ul>
-                    <button onclick="scrollToSection('search-section')" class="px-8 py-4 bg-white text-indigo-900 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition transform">
-                        جرب البحث برقم VIN الآن
-                    </button>
-                </div>
-                <div class="relative order-1 lg:order-2">
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-xl font-bold">تقرير VIN نموذجي</h3>
-                            <span class="px-3 py-1 bg-green-500 rounded-full text-xs font-medium">تم التحقق</span>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex justify-between py-3 border-b border-white/10">
-                                <span class="text-indigo-200">السيارة</span>
-                                <span class="font-medium">2020 Toyota Camry SE</span>
-                            </div>
-                            <div class="flex justify-between py-3 border-b border-white/10">
-                                <span class="text-indigo-200">المحرك</span>
-                                <span class="font-medium">2.5L L4 DOHC 16V</span>
-                            </div>
-                            <div class="flex justify-between py-3 border-b border-white/10">
-                                <span class="text-indigo-200">ناقل الحركة</span>
-                                <span class="font-medium">أوتوماتيك 8 سرعات</span>
-                            </div>
-                            <div class="flex justify-between py-3 border-b border-white/10">
-                                <span class="text-indigo-200">مصنع التجميع</span>
-                                <span class="font-medium">جورجتاون، كنتاكي</span>
-                            </div>
-                            <div class="flex justify-between py-3">
-                                <span class="text-indigo-200">تاريخ الإنتاج</span>
-                                <span class="font-medium">مارس 2020</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-green-500/20 rounded-lg border border-green-500/30">
-                            <p class="text-sm text-green-300 flex items-center">
-                                <i class="fas fa-info-circle mr-2"></i>
-                                247 قطعة غيار متوفرة لهذه المواصفات بالضبط
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Top Brands -->
-    <section id="brands" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="font-bold text-4xl mb-4">الماركات الموثوقة</h2>
-                <p class="text-gray-600 text-lg">نتعاون مع كبرى مصنعي قطع الغيار في العالم</p>
+        <div class="registration" id="registrationSection">
+            <h2>👥 التسجيل</h2>
+            
+            <div class="mode-selector">
+                <button class="mode-btn" onclick="setMode('single')" id="singleMode">🤖 فردي</button>
+                <button class="mode-btn active" onclick="setMode('players')" id="playersMode">لاعبين</button>
+                <button class="mode-btn" onclick="setMode('teams')" id="teamsMode">فرق</button>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70">
-                <div class="flex items-center justify-center h-20 grayscale hover:grayscale-0 transition cursor-pointer">
-                    <div class="text-2xl font-black text-gray-800">BOSCH</div>
+            <!-- Single Player Mode -->
+            <div class="single-input hidden" id="singleInput">
+                <div class="player-input-row" data-index="0">
+                    <div class="player-number">1</div>
+                    <input type="text" class="player-input" placeholder="اسم اللاعب" id="singlePlayer0">
+                    <input type="color" class="color-picker" value="#00f5ff" id="singleColor0">
                 </div>
-                <div class="flex items-center justify-center h-20 grayscale hover:grayscale-0 transition cursor-pointer">
-                    <div class="text-2xl font-black text-gray-800">DENSO</div>
-                </div>
-                <div class="flex items-center justify-center h-20 grayscale hover:grayscale-0 transition cursor-pointer">
-                    <div class="text-2xl font-black text-gray-800">MAGNA</div>
-                </div>
-                <div class="flex items-center justify-center h-20 grayscale hover:grayscale-0 transition cursor-pointer">
-                    <div class="text-2xl font-black text-gray-800">CONTINENTAL</div>
-                </div>
-                <div class="flex items-center justify-center h-20 grayscale hover:grayscale-0 transition cursor-pointer">
-                    <div class="text-2xl font-black text-gray-800">VALEO</div>
-                </div>
-                <div class="flex items-center justify-center h-20 grayscale hover:grayscale-0 transition cursor-pointer">
-                    <div class="text-2xl font-black text-gray-800">Aisin</div>
+                <div style="background: rgba(255,0,255,0.1); border: 1px solid rgba(255,0,255,0.3); border-radius: 10px; padding: 12px; text-align: center; color: #ff00ff; font-size: 0.9rem;">
+                    🤖 ستلعب ضد الذكاء الاصطناعي
                 </div>
             </div>
-
-            <div class="mt-16 grid md:grid-cols-3 gap-8">
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-certificate text-3xl text-indigo-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">OEM أصلي</h3>
-                    <p class="text-gray-600">قطع غيار الشركة المصنعة الأصلية مع تغطية ضمان كاملة</p>
+            
+            <!-- Players Mode -->
+            <div class="players-input" id="playersInput">
+                <div class="player-input-row" data-index="0">
+                    <div class="player-number">1</div>
+                    <input type="text" class="player-input" placeholder="اللاعب 1" id="player0">
+                    <input type="color" class="color-picker" value="#00f5ff" id="color0">
+                    <button class="delete-btn" onclick="deletePlayer(0)" disabled>×</button>
                 </div>
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-medal text-3xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">تجاري ممتاز</h3>
-                    <p class="text-gray-600">بدائل عالية الجودة تلبي أو تتجاوز مواصفات OEM</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-recycle text-3xl text-pink-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">مجدد</h3>
-                    <p class="text-gray-600">قطع صديقة للبيئة مجددة وتم اختبارها كالجديدة</p>
+                <div class="player-input-row" data-index="1">
+                    <div class="player-number">2</div>
+                    <input type="text" class="player-input" placeholder="اللاعب 2" id="player1">
+                    <input type="color" class="color-picker" value="#ff00ff" id="color1">
+                    <button class="delete-btn" onclick="deletePlayer(1)">×</button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-bold text-4xl mb-4">كيف يعمل</h2>
-                <p class="text-gray-600 text-lg">احصل على القطعة المناسبة في ثلاث خطوات بسيطة</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 relative">
-                <div class="hidden md:block absolute top-1/2 right-1/3 left-1/3 h-0.5 bg-indigo-200 -translate-y-1/2 z-0"></div>
-                
-                <div class="relative z-10 text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-xl">
-                        ١
+            
+            <!-- Teams Mode -->
+            <div class="teams-input hidden" id="teamsInput">
+                <div class="team-row" data-index="0">
+                    <div class="team-header">
+                        <div class="team-number">1</div>
+                        <input type="text" class="team-name-input" placeholder="اسم الفريق 1" id="teamName0">
+                        <input type="color" class="color-picker" value="#00f5ff" id="teamColor0">
+                        <button class="delete-btn" onclick="deleteTeam(0)" disabled>×</button>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">ابحث عن سيارتك</h3>
-                    <p class="text-gray-600">أدخل رقم VIN أو اختر الشركة والموديل والسنة لرؤية المطابقات الدقيقة</p>
-                </div>
-
-                <div class="relative z-10 text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-xl">
-                        ٢
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">اعثر على قطعتك</h3>
-                    <p class="text-gray-600">تصفح قطع الغيار المتوافقة مع المواصفات التفصيلية والصور وتقييمات العملاء</p>
-                </div>
-
-                <div class="relative z-10 text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-xl">
-                        ٣
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">توصيل سريع</h3>
-                    <p class="text-gray-600">اطلب بثقة واحصل على قطع الغيار delivered لباب منزلك أو لورشة التصليح</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-bold text-4xl text-center mb-12">ماذا يقول الميكانيكيون</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 rounded-2xl p-8 card-hover">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6">"البحث برقم VIN وفّر عليّ الكثير من الوقت. كنت أقوم بمطابقة القطع يدوياً، الآن أحصل على المطابقات الدقيقة فوراً. ثورة في ورشتي."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full ml-4"></div>
-                        <div>
-                            <p class="font-bold">مايك رودريغيز</p>
-                            <p class="text-sm text-gray-500">صاحب ورشة رودريغيز للسيارات</p>
+                    <div class="team-members" id="teamMembers0">
+                        <div class="member-input">
+                            <span class="member-number">فرد 1</span>
+                            <input type="text" class="member-name-input" placeholder="اسم الفرد الأول" id="team0member0">
+                        </div>
+                        <div class="member-input">
+                            <span class="member-number">فرد 2</span>
+                            <input type="text" class="member-name-input" placeholder="اسم الفرد الثاني" id="team0member1">
                         </div>
                     </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl p-8 card-hover">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6">"أسعار تنافسية وضمان التوافق يعني عدم وجود إرجاع. عملائي أكثر سعادة وهوامشي أفضل."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full ml-4"></div>
-                        <div>
-                            <p class="font-bold">سارة تشن</p>
-                            <p class="text-sm text-gray-500">ميكانيكي رئيسي، بريسيجن موتورز</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl p-8 card-hover">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6">"أطلب جميع قطع السيارات الكلاسيكية النادرة من هنا. الكتالوج ضخم والشحن دائماً سريع. أنصح به بشدة."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full ml-4"></div>
-                        <div>
-                            <p class="font-bold">جيمس ويلسون</p>
-                            <p class="text-sm text-gray-500">ترميم السيارات الكلاسيكية</p>
-                        </div>
-                    </div>
+                    <button class="add-member-btn" onclick="addMember(0)" id="addMemberBtn0">+ إضافة فرد للفريق</button>
                 </div>
             </div>
+            
+            <button class="add-player-btn" onclick="addPlayer()" id="addPlayerBtn">+ إضافة لاعب</button>
+            <button class="add-team-btn hidden" onclick="addTeam()" id="addTeamBtn">+ إضافة فريق</button>
+            <button class="start-game-btn" onclick="startTournament()">ابدأ اللعب 🎮</button>
         </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-bold text-3xl mb-4">احصل على عروض حصرية</h2>
-            <p class="text-indigo-100 mb-8 text-lg">اشترك للحصول على خصم 15% على طلبك الأول وتنبيهات للقطع النادرة</p>
-            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('شكراً للاشتراك!');">
-                <input type="email" placeholder="أدخل بريدك الإلكتروني" class="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/30 text-right">
-                <button type="submit" class="px-8 py-4 bg-gray-900 rounded-full font-bold hover:bg-gray-800 transition">
-                    اشتراك
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-cog text-white text-xl"></i>
-                        </div>
-                        <span class="font-orbitron text-2xl font-bold text-white">Auto<span class="text-indigo-400">Parts</span> Pro</span>
-                    </div>
-                    <p class="text-gray-400 mb-6">أكثر متاجر قطع الغيار تطوراً مع فحص التوافق بناءً على رقم VIN.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-6">التسوق</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-white transition">قطع الفرامل</a></li>
-                        <li><a href="#" class="hover:text-white transition">مكونات المحرك</a></li>
-                        <li><a href="#" class="hover:text-white transition">المعلق</a></li>
-                        <li><a href="#" class="hover:text-white transition">الكهرباء</a></li>
-                        <li><a href="#" class="hover:text-white transition">الهيكل الخارجي</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-6">الدعم</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-white transition">حالة الطلب</a></li>
-                        <li><a href="#" class="hover:text-white transition">الإرجاع والضمان</a></li>
-                        <li><a href="#" class="hover:text-white transition">مساعدة VIN</a></li>
-                        <li><a href="#" class="hover:text-white transition">أدلة التركيب</a></li>
-                        <li><a href="#" class="hover:text-white transition">اتصل بنا</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-6">التواصل</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center space-x-3">
-                            <i class="fas fa-phone text-indigo-400"></i>
-                            <span>1-800-AUTOPARTS</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fas fa-envelope text-indigo-400"></i>
-                            <span>help@autopartspro.com</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fas fa-clock text-indigo-400"></i>
-                            <span>دعم 24/7</span>
-                        </li>
-                    </ul>
-                </div>
+        
+        <div class="game-section" id="gameSection">
+            <div class="round-indicator" id="roundIndicator">الجولة 1</div>
+            <div class="team-mode-indicator hidden" id="teamModeIndicator">وضع الفرق - كل فرد يلعب دوره</div>
+            <div class="ai-mode-indicator hidden" id="aiModeIndicator">🤖 وضع اللعب ضد الذكاء الاصطناعي</div>
+            <div class="ai-thinking" id="aiThinking">🤖 الذكاء الاصطناعي يحسب موعد توقفه...</div>
+            <div class="current-player">
+                <div class="current-player-label" id="currentPlayerLabel">الدور على</div>
+                <div class="current-player-name" id="currentPlayerName">-</div>
+                <div class="current-player-team hidden" id="currentPlayerTeam"></div>
+                <div class="ai-indicator hidden" id="aiIndicator"></div>
             </div>
-
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm text-gray-500">&copy; 2026 أوتو بارتس برو. جميع الحقوق محفوظة.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0 text-sm">
-                    <a href="#" class="hover:text-white transition">سياسة الخصوصية</a>
-                    <a href="#" class="hover:text-white transition">شروط الخدمة</a>
-                    <a href="#" class="hover:text-white transition">إمكانية الوصول</a>
-                </div>
+            <div class="target-display"><div class="target-label">الهدف</div><div class="target-time" id="targetTime">-.-s</div></div>
+            <div class="timer-display" id="timerDisplay">0.000s</div>
+            <div class="controls">
+                <button class="game-btn start-btn" id="startBtn" onclick="startRound()">ابدأ ⏱️</button>
+                <button class="game-btn stop-btn" id="stopBtn" onclick="stopTimer()" disabled>قف! 🛑</button>
             </div>
+            <div class="status-message" id="statusMessage">اضغط "ابدأ"</div>
+            <div class="game-controls"><button class="back-btn" onclick="confirmBackToMenu()">🔙 العودة للقائمة</button></div>
         </div>
-    </footer>
-
-    <!-- Shopping Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed inset-y-0 left-0 w-full md:w-96 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 z-50 flex flex-col">
-        <div class="p-6 border-b flex justify-between items-center bg-gray-50">
-            <h3 class="text-xl font-bold flex items-center">
-                <i class="fas fa-shopping-cart ml-3 text-indigo-600"></i>سلة التسوق
-            </h3>
-            <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
-        </div>
-        <div id="cart-items" class="flex-1 overflow-y-auto p-6">
-            <div class="text-center text-gray-500 py-12">
-                <i class="fas fa-shopping-basket text-6xl mb-4 text-gray-300"></i>
-                <p>سلة التسوق فارغة</p>
-                <button onclick="toggleCart(); scrollToSection('search-section')" class="mt-4 text-indigo-600 font-medium hover:underline">
-                    ابدأ التسوق
-                </button>
-            </div>
-        </div>
-        <div class="p-6 border-t bg-gray-50">
-            <div class="flex justify-between mb-4 text-lg font-bold">
-                <span>الإجمالي</span>
-                <span id="cart-total">$0.00</span>
-            </div>
-            <button class="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg transition">
-                إتمام الشراء
-            </button>
+        
+        <div class="results-section" id="resultsSection">
+            <div class="results-scroll"><div id="roundResults"></div><div class="leaderboard" id="leaderboard"><h3>🏆 الترتيب العام (النقاط)</h3><div id="leaderboardContent"></div></div></div>
+            <div class="action-buttons"><button class="next-btn" onclick="nextRound()" id="nextRoundBtn">التالية ⏭️</button><button class="back-btn" onclick="confirmBackToMenu()">🔙 القائمة</button></div>
         </div>
     </div>
-    <div id="cart-overlay" class="fixed inset-0 bg-black/50 hidden z-40" onclick="toggleCart()"></div>
 
     <script>
-        // Data
-        const vehicleData = {
-            years: Array.from({length: 25}, (_, i) => 2026 - i),
-            makes: {
-                'Toyota': ['Camry', 'Corolla', 'RAV4', 'Highlander', 'Tacoma', 'Tundra', '4Runner'],
-                'Honda': ['Accord', 'Civic', 'CR-V', 'Pilot', 'Odyssey', 'Ridgeline'],
-                'Ford': ['F-150', 'Mustang', 'Explorer', 'Escape', 'Bronco', 'Ranger'],
-                'Chevrolet': ['Silverado', 'Equinox', 'Malibu', 'Tahoe', 'Suburban', 'Camaro'],
-                'BMW': ['3 Series', '5 Series', 'X3', 'X5', '7 Series', 'M3'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class', 'GLC', 'GLE', 'A-Class']
-            },
-            engines: {
-                'Camry': ['2.5L L4', '3.5L V6', '2.5L Hybrid'],
-                'Accord': ['1.5L Turbo', '2.0L Turbo', '2.0L Hybrid'],
-                'F-150': ['3.3L V6', '2.7L EcoBoost', '5.0L V8', '3.5L PowerBoost']
-            }
-        };
-
-        const partsData = [
-            { id: 1, name: 'طقم فحمات فرامل سيراميك', sku: 'BP-CER-001', price: 89.99, category: 'brakes', rating: 4.8, reviews: 234, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80', brand: 'Brembo', fitment: '2019-2023 Honda Accord', warranty: '3 سنوات' },
-            { id: 2, name: 'أقراص فرامل أداء (زوج)', sku: 'RT-PRF-002', price: 156.00, category: 'brakes', rating: 4.9, reviews: 189, image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=400&q=80', brand: 'Bosch', fitment: 'عالمي', warranty: 'مدى الحياة' },
-            { id: 3, name: 'طقم مساعد كامل', sku: 'STR-ASM-003', price: 199.99, category: 'suspension', rating: 4.7, reviews: 156, image: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=400&q=80', brand: 'Monroe', fitment: '2020 Toyota Camry', warranty: '5 سنوات' },
-            { id: 4, name: 'طقم ملفات إشعال (4 قطع)', sku: 'IGN-CLP-004', price: 124.50, category: 'electrical', rating: 4.6, reviews: 312, image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&q=80', brand: 'Denso', fitment: '2018-2022 Honda Civic', warranty: 'سنتان' },
-            { id: 5, name: 'حساس أكسجين أصلي', sku: 'OXY-SNS-005', price: 67.99, category: 'electrical', rating: 4.5, reviews: 89, image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80', brand: 'NGK', fitment: 'توافقات متعددة', warranty: 'سنة' },
-            { id: 6, name: 'طقم سير توقيت مع طرمبة ماء', sku: 'TMB-KIT-006', price: 289.00, category: 'engine', rating: 4.9, reviews: 67, image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80', brand: 'Gates', fitment: '2015-2020 Toyota RAV4', warranty: 'مدى الحياة' }
-        ];
-
-        let cart = [];
-        let currentVehicle = null;
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            initYearSelect();
-            renderParts(partsData);
-        });
-
-        // Tab Switching
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-white', 'shadow-md', 'text-indigo-600');
-                btn.classList.add('text-gray-600');
-            });
-            document.getElementById(`tab-${tab}`).classList.remove('text-gray-600');
-            document.getElementById(`tab-${tab}`).classList.add('bg-white', 'shadow-md', 'text-indigo-600');
+        // Theme Switcher Function
+        function changeTheme(themeName) {
+            const body = document.body;
+            body.classList.remove('theme-galaxy', 'theme-ocean', 'theme-sunset', 'theme-forest', 'theme-midnight', 'theme-clean');
+            body.classList.add(`theme-${themeName}`);
             
-            document.querySelectorAll('.search-panel').forEach(panel => panel.classList.add('hidden'));
-            document.getElementById(`panel-${tab}`).classList.remove('hidden');
+            // Update active state in UI
+            document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active'));
+            const activeThemeEl = document.querySelector(`.theme-${themeName}-color`);
+            if (activeThemeEl) activeThemeEl.classList.add('active');
+            
+            // Save preference in localStorage
+            localStorage.setItem('gameTheme', themeName);
         }
-
-        // REAL VIN API Integration using NHTSA (Free, No API Key Required)
-        async function searchByVIN() {
-            const vinInput = document.getElementById('vin-input');
-            const vin = vinInput.value.trim().toUpperCase();
-            
-            if (vin.length !== 17) {
-                showVINError('يرجى إدخال رقم VIN صحيح مكون من 17 حرفاً');
-                return;
-            }
-
-            // Show loading
-            document.getElementById('vin-loading').classList.remove('hidden');
-            document.getElementById('vin-result').classList.add('hidden');
-            document.getElementById('vin-error').classList.add('hidden');
-            document.getElementById('vin-search-btn').disabled = true;
-            document.getElementById('vin-search-btn').innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-
-            try {
-                // Using NHTSA API (National Highway Traffic Safety Administration) - Free, official US government API
-                const response = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`);
-                const data = await response.json();
-
-                if (data.Results && data.Results.length > 0) {
-                    const results = data.Results;
-                    
-                    // Extract vehicle data from API response
-                    const getValue = (variable) => {
-                        const item = results.find(r => r.Variable === variable);
-                        return item && item.Value ? item.Value : 'غير متوفر';
-                    };
-
-                    const year = getValue('Model Year');
-                    const make = getValue('Make');
-                    const model = getValue('Model');
-                    const engineCylinders = getValue('Engine Number of Cylinders');
-                    const engineL = getValue('Displacement (L)');
-                    const plant = getValue('Plant City');
-                    const fuelType = getValue('Fuel Type - Primary');
-                    const transmission = getValue('Transmission Style');
-
-                    // Check if we got valid data
-                    if (make === 'غير متوفر' || model === 'غير متوفر') {
-                        showVINError('لم يتم العثور على بيانات لهذا الرقم. تأكد من صحة رقم VIN.');
-                        return;
-                    }
-
-                    // Display results
-                    document.getElementById('vehicle-title').textContent = `${year} ${make} ${model}`;
-                    document.getElementById('vehicle-vin').querySelector('span').textContent = vin;
-                    document.getElementById('res-year').textContent = year;
-                    document.getElementById('res-make').textContent = make;
-                    document.getElementById('res-model').textContent = model;
-                    document.getElementById('res-engine').textContent = engineL !== 'غير متوفر' ? `${engineL}L` : `${engineCylinders} سلندر`;
-                    document.getElementById('res-plant').textContent = `مصنع التجميع: ${plant} | ${fuelType}`;
-
-                    currentVehicle = { year, make, model, vin, engine: engineL };
-                    
-                    document.getElementById('vin-result').classList.remove('hidden');
-                } else {
-                    showVINError('لم يتم العثور على بيانات لهذا الرقم في قاعدة البيانات');
-                }
-            } catch (error) {
-                console.error('VIN API Error:', error);
-                showVINError('حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.');
-            } finally {
-                document.getElementById('vin-loading').classList.add('hidden');
-                document.getElementById('vin-search-btn').disabled = false;
-                document.getElementById('vin-search-btn').textContent = 'بحث';
+        
+        // Load saved theme on startup
+        const savedTheme = localStorage.getItem('gameTheme');
+        if (savedTheme && ['galaxy','ocean','sunset','forest','midnight','clean'].includes(savedTheme)) {
+            changeTheme(savedTheme);
+        } else {
+            changeTheme('galaxy');
+        }
+        
+        // Audio context (same as before)
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        let soundEnabled = true;
+        
+        function initAudio() { if (!audioCtx) { audioCtx = new AudioContext(); } if (audioCtx.state === 'suspended') audioCtx.resume(); }
+        function playSound(type) {
+            if (!soundEnabled || !audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            const filter = audioCtx.createBiquadFilter();
+            osc.connect(filter); filter.connect(gainNode); gainNode.connect(audioCtx.destination);
+            const now = audioCtx.currentTime;
+            switch(type) {
+                case 'start': osc.type='sine'; osc.frequency.setValueAtTime(440,now); osc.frequency.exponentialRampToValueAtTime(880,now+0.1); filter.type='lowpass'; filter.frequency.setValueAtTime(2000,now); gainNode.gain.setValueAtTime(0.3,now); gainNode.gain.exponentialRampToValueAtTime(0.01,now+0.3); osc.start(now); osc.stop(now+0.3); break;
+                case 'stop': osc.type='sine'; osc.frequency.setValueAtTime(880,now); osc.frequency.exponentialRampToValueAtTime(440,now+0.2); filter.type='lowpass'; filter.frequency.setValueAtTime(3000,now); gainNode.gain.setValueAtTime(0.3,now); gainNode.gain.exponentialRampToValueAtTime(0.01,now+0.4); osc.start(now); osc.stop(now+0.4); break;
+                case 'tick': osc.type='triangle'; osc.frequency.setValueAtTime(200,now); filter.type='highpass'; filter.frequency.setValueAtTime(1000,now); gainNode.gain.setValueAtTime(0.05,now); gainNode.gain.exponentialRampToValueAtTime(0.01,now+0.05); osc.start(now); osc.stop(now+0.05); break;
+                case 'win': playChord([523.25,659.25,783.99,1046.50],now); break;
+                case 'lose': osc.type='sawtooth'; osc.frequency.setValueAtTime(300,now); osc.frequency.linearRampToValueAtTime(200,now+0.5); filter.type='lowpass'; filter.frequency.setValueAtTime(1000,now); gainNode.gain.setValueAtTime(0.2,now); gainNode.gain.linearRampToValueAtTime(0.01,now+0.5); osc.start(now); osc.stop(now+0.5); break;
+                case 'ai': osc.type='square'; osc.frequency.setValueAtTime(150,now); osc.frequency.linearRampToValueAtTime(100,now+0.1); filter.type='bandpass'; filter.frequency.setValueAtTime(800,now); gainNode.gain.setValueAtTime(0.1,now); gainNode.gain.linearRampToValueAtTime(0.01,now+0.1); osc.start(now); osc.stop(now+0.1); break;
             }
         }
-
-        function showVINError(message) {
-            document.getElementById('vin-error-text').textContent = message;
-            document.getElementById('vin-error').classList.remove('hidden');
-            document.getElementById('vin-loading').classList.add('hidden');
-            document.getElementById('vin-result').classList.add('hidden');
-        }
-
-        function showCompatibleParts() {
-            document.getElementById('parts-results').classList.remove('hidden');
-            const title = currentVehicle ? 
-                `قطع الغيار لـ ${currentVehicle.year} ${currentVehicle.make} ${currentVehicle.model}` : 
-                'قطع الغيار المتوافقة';
-            document.getElementById('results-title').textContent = title;
-            document.getElementById('results-subtitle').textContent = `عرض ${partsData.length} قطعة غيار متوافقة بناءً على رقم VIN`;
-            scrollToSection('parts-results');
-        }
-
-        // Vehicle Select Logic
-        function initYearSelect() {
-            const select = document.getElementById('year-select');
-            vehicleData.years.forEach(year => {
-                select.innerHTML += `<option value="${year}">${year}</option>`;
-            });
-        }
-
-        function updateMakes() {
-            const year = document.getElementById('year-select').value;
-            const makeSelect = document.getElementById('make-select');
-            makeSelect.innerHTML = '<option value="">اختر الشركة</option>';
-            makeSelect.disabled = !year;
-            
-            if (year) {
-                Object.keys(vehicleData.makes).forEach(make => {
-                    makeSelect.innerHTML += `<option value="${make}">${make}</option>`;
-                });
-            }
-            updateModels();
-        }
-
-        function updateModels() {
-            const make = document.getElementById('make-select').value;
-            const modelSelect = document.getElementById('model-select');
-            modelSelect.innerHTML = '<option value="">اختر الموديل</option>';
-            modelSelect.disabled = !make;
-            
-            if (make && vehicleData.makes[make]) {
-                vehicleData.makes[make].forEach(model => {
-                    modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
-                });
-            }
-            updateEngines();
-        }
-
-        function updateEngines() {
-            const model = document.getElementById('model-select').value;
-            const engineSelect = document.getElementById('engine-select');
-            engineSelect.innerHTML = '<option value="">اختر المحرك</option>';
-            engineSelect.disabled = !model;
-            
-            if (model && vehicleData.engines[model]) {
-                vehicleData.engines[model].forEach(engine => {
-                    engineSelect.innerHTML += `<option value="${engine}">${engine}</option>`;
-                });
-            }
-        }
-
-        function searchByVehicle() {
-            const year = document.getElementById('year-select').value;
-            const make = document.getElementById('make-select').value;
-            const model = document.getElementById('model-select').value;
-            
-            if (!year || !make || !model) {
-                alert('يرجى اختيار السنة والشركة والموديل');
-                return;
-            }
-            
-            currentVehicle = { year, make, model };
-            document.getElementById('parts-results').classList.remove('hidden');
-            document.getElementById('results-title').textContent = `قطع الغيار لـ ${year} ${make} ${model}`;
-            document.getElementById('results-subtitle').textContent = `عرض ${partsData.length} قطعة غيار متوافقة`;
-            scrollToSection('parts-results');
-        }
-
-        function searchByPartNumber() {
-            document.getElementById('parts-results').classList.remove('hidden');
-            document.getElementById('results-title').textContent = 'نتائج البحث';
-            document.getElementById('results-subtitle').textContent = `تم العثور على ${partsData.length} قطعة تطابق بحثك`;
-            scrollToSection('parts-results');
-        }
-
-        function searchByCategory(category) {
-            const filtered = partsData.filter(p => p.category === category);
-            document.getElementById('parts-results').classList.remove('hidden');
-            const categoryNames = {
-                'brakes': 'فرامل',
-                'engine': 'محرك',
-                'suspension': 'معلق',
-                'electrical': 'كهرباء',
-                'body': 'هيكل خارجي',
-                'transmission': 'ناقل حركة',
-                'interior': 'داخلي',
-                'exhaust': 'عادم'
-            };
-            document.getElementById('results-title').textContent = `قطع ${categoryNames[category]}`;
-            document.getElementById('results-subtitle').textContent = `عرض ${filtered.length} قطعة في هذه الفئة`;
-            renderParts(filtered);
-            scrollToSection('parts-results');
-        }
-
-        function showCategoryParts(category) {
-            searchByCategory(category);
-        }
-
-        // Render Parts
-        function renderParts(parts) {
-            const grid = document.getElementById('parts-grid');
-            grid.innerHTML = parts.map(part => `
-                <div class="part-card rounded-2xl overflow-hidden shadow-lg card-hover border border-gray-100">
-                    <div class="relative h-48 overflow-hidden bg-gray-200">
-                        <img src="${part.image}" alt="${part.name}" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">
-                            ${part.brand}
-                        </div>
-                        ${part.warranty.includes('الحياة') ? '<div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">ضمان مدى الحياة</div>' : ''}
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400 text-sm">
-                                ${Array(5).fill(0).map((_, i) => `<i class="${i < Math.floor(part.rating) ? 'fas' : 'far'} fa-star"></i>`).join('')}
-                            </div>
-                            <span class="text-sm text-gray-500 mr-2">(${part.reviews})</span>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2 line-clamp-2">${part.name}</h3>
-                        <p class="text-sm text-gray-500 mb-4">رمز: ${part.sku}</p>
-                        <p class="text-xs text-green-600 mb-4 flex items-center">
-                            <i class="fas fa-check-circle ml-1"></i> يتناسب مع: ${part.fitment}
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <span class="text-2xl font-bold text-indigo-600">$${part.price}</span>
-                                <span class="text-sm text-gray-400 line-through mr-2">$${(part.price * 1.3).toFixed(2)}</span>
-                            </div>
-                            <button onclick="addToCart(${part.id})" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center">
-                                <i class="fas fa-plus ml-2"></i>إضافة
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Cart Functions
-        function addToCart(partId) {
-            const part = partsData.find(p => p.id === partId);
-            const existing = cart.find(item => item.id === partId);
-            
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({ ...part, quantity: 1 });
-            }
-            
-            updateCart();
-            toggleCart();
-        }
-
-        function removeFromCart(partId) {
-            cart = cart.filter(item => item.id !== partId);
-            updateCart();
-        }
-
-        function updateQuantity(partId, delta) {
-            const item = cart.find(item => item.id === partId);
-            if (item) {
-                item.quantity += delta;
-                if (item.quantity <= 0) removeFromCart(partId);
-                else updateCart();
-            }
-        }
-
-        function updateCart() {
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').textContent = count;
-            
-            const cartItems = document.getElementById('cart-items');
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = `
-                    <div class="text-center text-gray-500 py-12">
-                        <i class="fas fa-shopping-basket text-6xl mb-4 text-gray-300"></i>
-                        <p>سلة التسوق فارغة</p>
-                        <button onclick="toggleCart(); scrollToSection('search-section')" class="mt-4 text-indigo-600 font-medium hover:underline">
-                            ابدأ التسوق
-                        </button>
-                    </div>
-                `;
-            } else {
-                cartItems.innerHTML = cart.map(item => `
-                    <div class="flex items-center space-x-4 mb-4 pb-4 border-b">
-                        <img src="${item.image}" class="w-20 h-20 object-cover rounded-lg">
-                        <div class="flex-1 mr-4">
-                            <h4 class="font-bold text-sm line-clamp-2">${item.name}</h4>
-                            <p class="text-indigo-600 font-bold">$${item.price}</p>
-                            <div class="flex items-center mt-2 space-x-2">
-                                <button onclick="updateQuantity(${item.id}, -1)" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center">-</button>
-                                <span class="font-medium">${item.quantity}</span>
-                                <button onclick="updateQuantity(${item.id}, 1)" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center">+</button>
-                            </div>
-                        </div>
-                        <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 mr-2">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `).join('');
-            }
-        }
-
-        function toggleCart() {
-            const sidebar = document.getElementById('cart-sidebar');
-            const overlay = document.getElementById('cart-overlay');
-            const isOpen = !sidebar.classList.contains('-translate-x-full');
-            
-            if (isOpen) {
-                sidebar.classList.add('-translate-x-full');
-                overlay.classList.add('hidden');
-            } else {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.remove('hidden');
-            }
-        }
-
-        // Utilities
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-
-        function toggleFilters() {
-            document.getElementById('filters-panel').classList.toggle('hidden');
-        }
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-xl');
-            } else {
-                nav.classList.remove('shadow-xl');
-            }
-        });
+        function playChord(frequencies, startTime) { frequencies.forEach((freq,i)=>{ const osc=audioCtx.createOscillator(); const gain=audioCtx.createGain(); osc.type='sine'; osc.frequency.value=freq; gain.gain.setValueAtTime(0.15,startTime); gain.gain.exponentialRampToValueAtTime(0.01,startTime+0.8); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(startTime+i*0.05); osc.stop(startTime+0.8); }); }
+        function toggleSound() { soundEnabled=!soundEnabled; document.getElementById('soundBtn').textContent=soundEnabled?'🔊':'🔇'; document.getElementById('soundBtn').classList.toggle('muted',!soundEnabled); if(soundEnabled) initAudio(); }
+        
+        // Game variables
+        let players=[], teams=[], currentPlayerIndex=0, currentRound=1, TOTAL_ROUNDS=10, targetTime=0, startTime=0, timerInterval=null, isRunning=false, gameMode='players', maxPlayers=8, maxTeams=4, aiEnabled=false, aiPlayer=null, isAiTurn=false, tickInterval=null;
+        
+        function setMode(mode) { gameMode=mode; aiEnabled=(mode==='single'); document.getElementById('singleMode').classList.toggle('active',mode==='single'); document.getElementById('playersMode').classList.toggle('active',mode==='players'); document.getElementById('teamsMode').classList.toggle('active',mode==='teams'); document.getElementById('singleInput').classList.toggle('hidden',mode!=='single'); document.getElementById('playersInput').classList.toggle('hidden',mode!=='players'); document.getElementById('teamsInput').classList.toggle('hidden',mode!=='teams'); document.getElementById('addPlayerBtn').classList.toggle('hidden',mode!=='players'); document.getElementById('addTeamBtn').classList.toggle('hidden',mode!=='teams'); if(mode==='single') document.getElementById('singlePlayer0').value=''; }
+        function updatePlayerNumbers() { const rows=document.querySelectorAll('#playersInput .player-input-row'); rows.forEach((row,index)=>{ row.setAttribute('data-index',index); row.querySelector('.player-number').textContent=index+1; row.querySelector('.player-input').id='player'+index; row.querySelector('.player-input').placeholder='اللاعب '+(index+1); row.querySelector('.color-picker').id='color'+index; const delBtn=row.querySelector('.delete-btn'); delBtn.setAttribute('onclick','deletePlayer('+index+')'); delBtn.disabled=rows.length<=2; }); }
+        function updateTeamNumbers() { const rows=document.querySelectorAll('.team-row'); rows.forEach((row,index)=>{ row.setAttribute('data-index',index); row.querySelector('.team-number').textContent=index+1; row.querySelector('.team-name-input').id='teamName'+index; row.querySelector('.team-name-input').placeholder='اسم الفريق '+(index+1); row.querySelector('.color-picker').id='teamColor'+index; const delBtn=row.querySelector('.delete-btn'); delBtn.setAttribute('onclick','deleteTeam('+index+')'); delBtn.disabled=rows.length<=2; const memberInputs=row.querySelectorAll('.member-name-input'); memberInputs.forEach((input,mIndex)=>{ input.id='team'+index+'member'+mIndex; input.parentElement.querySelector('.member-number').textContent='فرد '+(mIndex+1); }); const addBtn=document.getElementById('addMemberBtn'+index); if(addBtn) addBtn.setAttribute('onclick','addMember('+index+')'); }); }
+        function addPlayer() { const container=document.getElementById('playersInput'); if(container.children.length>=maxPlayers) return; const colors=['#00f5ff','#ff00ff','#ffd700','#ff4444','#44ff44','#4444ff','#ff8844','#8844ff']; const row=document.createElement('div'); row.className='player-input-row'; row.setAttribute('data-index',container.children.length); row.innerHTML='<div class="player-number">'+(container.children.length+1)+'</div><input type="text" class="player-input" placeholder="اللاعب '+(container.children.length+1)+'" id="player'+container.children.length+'"><input type="color" class="color-picker" value="'+colors[container.children.length%colors.length]+'" id="color'+container.children.length+'"><button class="delete-btn" onclick="deletePlayer('+container.children.length+')">×</button>'; container.appendChild(row); updatePlayerNumbers(); if(container.children.length>=maxPlayers) document.getElementById('addPlayerBtn').style.display='none'; }
+        function addTeam() { const container=document.getElementById('teamsInput'); if(container.children.length>=maxTeams) return; const colors=['#00f5ff','#ff00ff','#ffd700','#ff4444','#44ff44','#4444ff','#ff8844','#8844ff']; const idx=container.children.length; const row=document.createElement('div'); row.className='team-row'; row.setAttribute('data-index',idx); row.innerHTML='<div class="team-header"><div class="team-number">'+(idx+1)+'</div><input type="text" class="team-name-input" placeholder="اسم الفريق '+(idx+1)+'" id="teamName'+idx+'"><input type="color" class="color-picker" value="'+colors[idx%colors.length]+'" id="teamColor'+idx+'"><button class="delete-btn" onclick="deleteTeam('+idx+')">×</button></div><div class="team-members" id="teamMembers'+idx+'"><div class="member-input"><span class="member-number">فرد 1</span><input type="text" class="member-name-input" placeholder="اسم الفرد الأول" id="team'+idx+'member0"></div><div class="member-input"><span class="member-number">فرد 2</span><input type="text" class="member-name-input" placeholder="اسم الفرد الثاني" id="team'+idx+'member1"></div></div><button class="add-member-btn" onclick="addMember('+idx+')" id="addMemberBtn'+idx+'">+ إضافة فرد للفريق</button>'; container.appendChild(row); updateTeamNumbers(); if(container.children.length>=maxTeams) document.getElementById('addTeamBtn').style.display='none'; }
+        function addMember(teamIndex) { const container=document.getElementById('teamMembers'+teamIndex); if(container.children.length>=8) return; const mIdx=container.children.length; const memberDiv=document.createElement('div'); memberDiv.className='member-input'; memberDiv.innerHTML='<span class="member-number">فرد '+(mIdx+1)+'</span><input type="text" class="member-name-input" placeholder="اسم الفرد" id="team'+teamIndex+'member'+mIdx+'"><button class="delete-btn" onclick="deleteMember('+teamIndex+','+mIdx+')" style="width:24px;height:24px;font-size:0.8rem;">×</button>'; container.appendChild(memberDiv); updateTeamNumbers(); if(container.children.length>=8) document.getElementById('addMemberBtn'+teamIndex).style.display='none'; }
+        function deleteMember(teamIndex, memberIndex) { const container=document.getElementById('teamMembers'+teamIndex); const members=container.querySelectorAll('.member-input'); if(members.length<=2) { alert('يجب أن يكون هناك فردان على الأقل في الفريق!'); return; } members[memberIndex].remove(); updateTeamNumbers(); document.getElementById('addMemberBtn'+teamIndex).style.display='block'; }
+        function deletePlayer(index) { const container=document.getElementById('playersInput'); const rows=container.querySelectorAll('.player-input-row'); if(rows.length<=2) { alert('يجب أن يكون هناك لاعبان على الأقل!'); return; } rows[index].remove(); updatePlayerNumbers(); document.getElementById('addPlayerBtn').style.display='block'; }
+        function deleteTeam(index) { const container=document.getElementById('teamsInput'); const rows=container.querySelectorAll('.team-row'); if(rows.length<=2) { alert('يجب أن يكون هناك فريقان على الأقل!'); return; } rows[index].remove(); updateTeamNumbers(); document.getElementById('addTeamBtn').style.display='block'; }
+        function createAIPlayer() { return { id:999, name:'🤖 الذكاء الاصطناعي', color:'#ff00ff', scores:[], points:0, totalDiff:0, isTeam:false, isAI:true }; }
+        function generateAIMove() { const variance=(Math.random()*3-1.5); let aiTime=parseFloat(targetTime)+variance; if(aiTime<0.5) aiTime=0.5; return aiTime.toFixed(3); }
+        function startTournament() { initAudio(); if(gameMode==='single') startSingleMode(); else if(gameMode==='players') startPlayersMode(); else startTeamsMode(); }
+        function startSingleMode() { const name=document.getElementById('singlePlayer0').value.trim(); if(!name) { alert('أدخل اسم اللاعب!'); return; } players=[{ id:0, name:name, color:document.getElementById('singleColor0').value, scores:[], points:0, totalDiff:0, isTeam:false, isAI:false }, createAIPlayer()]; teams=[]; startGame(); }
+        function startPlayersMode() { const rows=document.querySelectorAll('#playersInput .player-input-row'); players=[]; let hasEmpty=false; rows.forEach((row,idx)=>{ const name=row.querySelector('.player-input').value.trim(); if(!name) hasEmpty=true; else players.push({ id:idx, name:name, color:row.querySelector('.color-picker').value, scores:[], points:0, totalDiff:0, isTeam:false, isAI:false }); }); if(hasEmpty || players.length<2) { alert('أدخل اسم جميع اللاعبين (2 على الأقل)!'); return; } startGame(); }
+        function startTeamsMode() { const rows=document.querySelectorAll('.team-row'); teams=[]; players=[]; let hasEmpty=false; rows.forEach((row,idx)=>{ const teamName=row.querySelector('.team-name-input').value.trim(); if(!teamName) hasEmpty=true; const color=row.querySelector('.color-picker').value; const memberInputs=row.querySelectorAll('.member-name-input'); const members=[]; memberInputs.forEach((input,mIdx)=>{ const mName=input.value.trim(); if(!mName) hasEmpty=true; else members.push({ name:mName, memberIndex:mIdx }); }); if(teamName && members.length>=2){ const team={ id:idx, name:teamName, color:color, members:members, scores:[], points:0, totalDiff:0, isTeam:true, isAI:false }; teams.push(team); members.forEach(member=>{ players.push({ id:players.length, name:member.name, teamId:idx, teamName:teamName, color:color, scores:[], points:0, totalDiff:0, isTeam:true, memberIndex:member.memberIndex, isAI:false }); }); } }); if(hasEmpty || teams.length<2) { alert('أدخل جميع أسماء الفرق والأفراد (فريقان على الأقل)!'); return; } startGame(); }
+        function startGame() { document.getElementById('howToPlay').classList.add('hidden'); document.getElementById('registrationSection').classList.add('hidden'); document.getElementById('gameSection').classList.add('active'); if(gameMode==='teams') { document.getElementById('teamModeIndicator').classList.remove('hidden'); document.getElementById('currentPlayerTeam').classList.remove('hidden'); document.getElementById('currentPlayerLabel').textContent='الدور على (فرد)'; } if(aiEnabled) { document.getElementById('aiModeIndicator').classList.remove('hidden'); document.getElementById('aiIndicator').classList.remove('hidden'); } currentPlayerIndex=0; currentRound=1; startNewRound(); }
+        function startNewRound() { targetTime=(Math.random()*9+1).toFixed(2); document.getElementById('targetTime').textContent=targetTime+'s'; document.getElementById('timerDisplay').textContent='0.000s'; document.getElementById('timerDisplay').className='timer-display'; document.getElementById('roundIndicator').textContent='الجولة '+currentRound; document.getElementById('aiThinking').classList.remove('show'); updateCurrentPlayer(); document.getElementById('startBtn').disabled=false; document.getElementById('stopBtn').disabled=true; document.getElementById('statusMessage').textContent='الجولة '+currentRound+' - اضغط ابدأ'; const currentPlayer=players[currentPlayerIndex]; if(currentPlayer && currentPlayer.isAI) { isAiTurn=true; setTimeout(playAITurn,1000); } else isAiTurn=false; }
+        function updateCurrentPlayer() { const player=players[currentPlayerIndex]; if(!player) return; document.getElementById('currentPlayerName').textContent=player.name; document.getElementById('currentPlayerName').style.color=player.color; if(gameMode==='teams' && player.teamName) document.getElementById('currentPlayerTeam').textContent='فريق: '+player.teamName; document.getElementById('aiIndicator').textContent=player.isAI?'الذكاء الاصطناعي يلعب الآن...':(aiEnabled?'خصمك: الذكاء الاصطناعي':''); }
+        function playAITurn() { playSound('ai'); document.getElementById('startBtn').disabled=true; document.getElementById('aiThinking').classList.add('show'); document.getElementById('statusMessage').textContent='الذكاء الاصطناعي يختار موعد التوقف...'; setTimeout(()=>{ const aiTime=generateAIMove(); const diff=Math.abs(parseFloat(aiTime)-parseFloat(targetTime)); const player=players[currentPlayerIndex]; player.scores.push({ round:currentRound, time:aiTime, target:targetTime, diff:diff }); player.totalDiff+=diff; if(gameMode==='teams' && player.teamId!==undefined){ const team=teams.find(t=>t.id===player.teamId); if(team){ team.scores.push({ round:currentRound, memberIndex:player.memberIndex, memberName:player.name, time:aiTime, diff:diff }); team.totalDiff+=diff; } } playSound('stop'); document.getElementById('timerDisplay').textContent=aiTime+'s'; document.getElementById('timerDisplay').className='timer-display stopped'; document.getElementById('aiThinking').classList.remove('show'); document.getElementById('statusMessage').textContent='🤖 توقف عند '+aiTime+'s (فرق: '+diff.toFixed(3)+'s)'; currentPlayerIndex++; if(currentPlayerIndex<players.length){ setTimeout(()=>{ updateCurrentPlayer(); const np=players[currentPlayerIndex]; if(np.isAI) playAITurn(); else { document.getElementById('startBtn').disabled=false; document.getElementById('statusMessage').textContent='دور '+np.name+(np.teamName?' ('+np.teamName+')':''); } },1000); } else setTimeout(showRoundResults,1000); },1500+Math.random()*1000); }
+        function startRound() { if(isAiTurn) return; initAudio(); playSound('start'); startTime=performance.now(); isRunning=true; document.getElementById('timerDisplay').className='timer-display running'; document.getElementById('startBtn').disabled=true; document.getElementById('stopBtn').disabled=false; document.getElementById('statusMessage').textContent='اضغط "قف" عند الهدف!'; tickInterval=setInterval(()=>playSound('tick'),1000); timerInterval=setInterval(()=>{ const current=(performance.now()-startTime)/1000; document.getElementById('timerDisplay').textContent=current.toFixed(3)+'s'; },16); }
+        function stopTimer() { if(!isRunning||isAiTurn) return; clearInterval(timerInterval); clearInterval(tickInterval); isRunning=false; playSound('stop'); const endTime=performance.now(); const playerTime=((endTime-startTime)/1000).toFixed(3); const diff=Math.abs(parseFloat(playerTime)-parseFloat(targetTime)); const player=players[currentPlayerIndex]; player.scores.push({ round:currentRound, time:playerTime, target:targetTime, diff:diff }); player.totalDiff+=diff; if(gameMode==='teams' && player.teamId!==undefined){ const team=teams.find(t=>t.id===player.teamId); if(team){ team.scores.push({ round:currentRound, memberIndex:player.memberIndex, memberName:player.name, time:playerTime, diff:diff }); team.totalDiff+=diff; } } document.getElementById('timerDisplay').textContent=playerTime+'s'; document.getElementById('timerDisplay').className='timer-display stopped'; document.getElementById('stopBtn').disabled=true; currentPlayerIndex++; if(currentPlayerIndex<players.length){ setTimeout(()=>{ updateCurrentPlayer(); const np=players[currentPlayerIndex]; if(np.isAI) playAITurn(); else { document.getElementById('startBtn').disabled=false; document.getElementById('statusMessage').textContent='دور '+np.name+(np.teamName?' ('+np.teamName+')':''); } },500); } else setTimeout(showRoundResults,500); }
+        function showRoundResults() { document.getElementById('gameSection').classList.remove('active'); document.getElementById('resultsSection').classList.add('active'); let roundRankings,winners; if(gameMode==='single'||gameMode==='players'){ roundRankings=players.slice().sort((a,b)=>a.scores[a.scores.length-1].diff-b.scores[b.scores.length-1].diff); const winnerDiff=roundRankings[0].scores[roundRankings[0].scores.length-1].diff; winners=roundRankings.filter(p=>Math.abs(p.scores[p.scores.length-1].diff-winnerDiff)<0.001); winners.forEach(w=>w.points+=1); } else { roundRankings=teams.map(team=>{ const roundScores=team.scores.filter(s=>s.round===currentRound); const avgDiff=roundScores.reduce((sum,s)=>sum+s.diff,0)/roundScores.length; return {...team, roundAvgDiff:avgDiff}; }).sort((a,b)=>a.roundAvgDiff-b.roundAvgDiff); const winnerDiff=roundRankings[0].roundAvgDiff; winners=roundRankings.filter(t=>Math.abs(t.roundAvgDiff-winnerDiff)<0.001); winners.forEach(winner=>{ winner.points+=1; players.filter(p=>p.teamId===winner.id).forEach(p=>p.points+=1); }); } const humanPlayer=players.find(p=>!p.isAI); const humanWon=winners.some(w=>w.id===humanPlayer?.id||(w.isAI===humanPlayer?.isAI)); playSound(humanWon?'win':'lose'); let html=''; if(winners.length===1){ const winner=winners[0]; html+=`<div class="winner-announcement"><h2>🎉 فائز الجولة ${currentRound}</h2><div class="winner-name" style="color:${winner.color}">${winner.name}</div><div class="points-badge">+1 نقطة</div></div>`; } else { html+=`<div class="winner-announcement"><h2>🤝 تعادل في الجولة ${currentRound}!</h2><div class="winner-name" style="font-size:1.2rem;">${winners.map(w=>w.name).join(' و ')}</div><div class="points-badge">+1 لكل منهم</div></div>`; } html+='<div class="final-scores">'; if(gameMode==='single'||gameMode==='players'){ roundRankings.forEach(p=>{ const score=p.scores[p.scores.length-1]; const isWinner=winners.indexOf(p)!==-1; html+=`<div class="final-score-card ${isWinner?'winner':''} ${p.isAI?'ai-card':''}">${isWinner?'<div class="points-sticker">+1</div>':''}<div class="final-score-name" style="color:${p.color};">${p.isAI?'<span class="ai-badge">AI</span>':''}${p.name}</div><div class="final-score-time">${score.time}s | فرق: ${score.diff.toFixed(3)}s</div><div class="final-score-points">${p.points} نقطة</div></div>`; }); } else { roundRankings.forEach(team=>{ const roundScores=team.scores.filter(s=>s.round===currentRound); const avgTime=(roundScores.reduce((sum,s)=>sum+parseFloat(s.time),0)/roundScores.length).toFixed(3); const isWinner=winners.indexOf(team)!==-1; html+=`<div class="final-score-card ${isWinner?'winner':''}" style="grid-column: span 2;">${isWinner?'<div class="points-sticker">+1</div>':''}<div class="final-score-name" style="color:${team.color}; font-size:1rem;">${team.name}</div><div class="final-score-time">متوسط: ${avgTime}s | فرق: ${team.roundAvgDiff.toFixed(3)}s</div><div style="font-size:0.7rem;color:#888;">${roundScores.map(s=>s.memberName+': '+s.time+'s').join(' | ')}</div><div class="final-score-points">${team.points} نقطة</div></div>`; }); } html+='</div>'; document.getElementById('roundResults').innerHTML=html; updateLeaderboard(); const nextBtn=document.getElementById('nextRoundBtn'); if(currentRound>=TOTAL_ROUNDS){ nextBtn.textContent='النتائج النهائية 🏆'; nextBtn.onclick=showFinalResults; } else { nextBtn.textContent='الجولة '+(currentRound+1)+' ⏭️'; nextBtn.onclick=nextRound; } }
+        function updateLeaderboard() { let sorted=(gameMode==='single'||gameMode==='players')?players.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff):teams.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff); let html=''; sorted.forEach((item,index)=>{ const rankClass=index===0?'rank-1':index===1?'rank-2':index===2?'rank-3':'rank-other'; if(gameMode==='single'||gameMode==='players'){ html+=`<div class="leaderboard-item ${item.isAI?'ai-item':''}" style="border-right-color:${item.color}"><div class="leaderboard-rank ${rankClass}">${index+1}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color}">${item.isAI?'🤖 ':''}${item.name}</div><div class="leaderboard-stats">${item.points} فوز | مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div class="leaderboard-points">${item.points}</div></div>`; } else { html+=`<div class="leaderboard-item" style="border-right-color:${item.color}"><div class="leaderboard-rank ${rankClass}">${index+1}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color}">${item.name}</div><div class="leaderboard-stats">${item.members.map(m=>m.name).join('، ')}<br>${item.points} فوز | مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div class="leaderboard-points">${item.points}</div></div>`; } }); document.getElementById('leaderboardContent').innerHTML=html; }
+        function nextRound() { currentRound++; currentPlayerIndex=0; document.getElementById('gameSection').classList.add('active'); document.getElementById('resultsSection').classList.remove('active'); startNewRound(); }
+        function showFinalResults() { let finalRanking=(gameMode==='single'||gameMode==='players')?players.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff):teams.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff); const champion=finalRanking[0]; const humanPlayer=players.find(p=>!p.isAI); const humanWon=champion.id===humanPlayer?.id||(champion.isAI===humanPlayer?.isAI); playSound(humanWon?'win':'lose'); let html=`<div class="winner-announcement" style="padding:20px;"><h2>🏆 البطل النهائي 🏆</h2><div class="winner-name" style="color:${champion.color};font-size:2rem;">${champion.isAI?'🤖 ':''}${champion.name}</div><div class="points-badge" style="font-size:1.1rem;">${champion.points} / ${TOTAL_ROUNDS} نقطة</div></div>`; finalRanking.forEach((item,index)=>{ const medal=index===0?'🥇':index===1?'🥈':index===2?'🥉':(index+1)+'.'; if(gameMode==='single'||gameMode==='players'){ html+=`<div class="leaderboard-item ${item.isAI?'ai-item':''}" style="padding:12px;"><div style="font-size:1.5rem;margin-left:10px;">${medal}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color};">${item.isAI?'🤖 ':''}${item.name}</div><div class="leaderboard-stats">مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div style="font-weight:700;color:#ffd700;font-size:1.3rem;">${item.points}</div></div>`; } else { html+=`<div class="leaderboard-item" style="padding:12px;"><div style="font-size:1.5rem;margin-left:10px;">${medal}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color};">${item.name}</div><div class="leaderboard-stats">${item.members.map(m=>m.name).join('، ')}<br>مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div style="font-weight:700;color:#ffd700;font-size:1.3rem;">${item.points}</div></div>`; } }); document.getElementById('roundResults').innerHTML=html; document.getElementById('leaderboard').classList.add('hidden'); document.getElementById('nextRoundBtn').classList.add('hidden'); }
+        function confirmBackToMenu() { if(confirm('هل تريد العودة للقائمة الرئيسية؟ سيتم فقدان تقدم اللعبة الحالية.')) backToMenu(); }
+        function backToMenu() { if(timerInterval) clearInterval(timerInterval); if(tickInterval) clearInterval(tickInterval); isRunning=false; isAiTurn=false; players=[]; teams=[]; aiPlayer=null; currentPlayerIndex=0; currentRound=1; targetTime=0; startTime=0; aiEnabled=false; document.getElementById('gameSection').classList.remove('active'); document.getElementById('resultsSection').classList.remove('active'); document.getElementById('howToPlay').classList.remove('hidden'); document.getElementById('registrationSection').classList.remove('hidden'); document.getElementById('teamModeIndicator').classList.add('hidden'); document.getElementById('aiModeIndicator').classList.add('hidden'); document.getElementById('currentPlayerTeam').classList.add('hidden'); document.getElementById('aiIndicator').classList.add('hidden'); document.getElementById('aiThinking').classList.remove('show'); document.getElementById('currentPlayerLabel').textContent='الدور على'; document.getElementById('roundResults').innerHTML=''; document.getElementById('leaderboard').classList.remove('hidden'); const nextBtn=document.getElementById('nextRoundBtn'); nextBtn.textContent='التالية ⏭️'; nextBtn.onclick=nextRound; nextBtn.classList.remove('hidden'); setMode('players'); document.getElementById('singlePlayer0').value=''; }
+        document.addEventListener('touchstart',()=>{}, {passive:true}); document.addEventListener('keydown',e=>{ if(e.code==='Space'||e.code==='Enter'){ e.preventDefault(); if(document.getElementById('gameSection').classList.contains('active')){ if(!document.getElementById('startBtn').disabled && !isRunning && !isAiTurn) startRound(); else if(!document.getElementById('stopBtn').disabled && isRunning && !isAiTurn) stopTimer(); } } });
     </script>
 </body>
 </html>
