@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>تحدي الوقت - 6 ثيمات احترافية</title>
+    <title>تحدي الوقت</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
         
@@ -14,151 +14,25 @@
             -webkit-tap-highlight-color: transparent;
         }
         
+        :root {
+            /* Default Neon Cyber Theme */
+            --primary: #00f5ff;
+            --secondary: #ff00ff;
+            --accent: #ffd700;
+            --bg-start: #0f0c29;
+            --bg-mid: #302b63;
+            --bg-end: #24243e;
+            --danger: #ff4444;
+            --success: #44ff44;
+        }
+        
         html, body {
             height: 100%;
             overflow: hidden;
             font-family: 'Tajawal', sans-serif;
-            transition: background 0.3s ease, color 0.2s ease;
-        }
-        
-        /* Theme 1: Galaxy (Default) */
-        body.theme-galaxy {
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-mid) 50%, var(--bg-end) 100%);
             color: #fff;
-        }
-        body.theme-galaxy .game-container { background: transparent; }
-        
-        /* Theme 2: Ocean */
-        body.theme-ocean {
-            background: linear-gradient(135deg, #001f3f 0%, #005f73 50%, #0a9396 100%);
-            color: #fff;
-        }
-        body.theme-ocean .target-display { border-color: #94d2bd; background: rgba(148, 210, 189, 0.1); }
-        body.theme-ocean .target-label { color: #94d2bd; }
-        
-        /* Theme 3: Sunset */
-        body.theme-sunset {
-            background: linear-gradient(135deg, #ff4d4d 0%, #ff9f4a 50%, #ffe15d 100%);
-            color: #2d1b00;
-        }
-        body.theme-sunset .player-input, 
-        body.theme-sunset .team-name-input, 
-        body.theme-sunset .member-name-input { color: #2d1b00; background: rgba(255,255,240,0.8); border-color: #ff9f4a; }
-        body.theme-sunset .how-to-play { background: rgba(255, 200, 100, 0.2); border-color: #ffaa33; }
-        
-        /* Theme 4: Forest */
-        body.theme-forest {
-            background: linear-gradient(135deg, #0b3b2f 0%, #1b5e3f 50%, #2e7d64 100%);
-            color: #f0f7e6;
-        }
-        body.theme-forest .target-display { border-color: #c5e0b4; background: rgba(197, 224, 180, 0.1); }
-        body.theme-forest .target-label { color: #d4e6b0; }
-        body.theme-forest .game-btn.start-btn { background: linear-gradient(135deg, #4caf50, #2e7d32); color: #fff; }
-        
-        /* Theme 5: Midnight */
-        body.theme-midnight {
-            background: linear-gradient(135deg, #0b0b1a 0%, #1a1a2f 50%, #16213e 100%);
-            color: #e0e0ff;
-        }
-        body.theme-midnight .timer-display.running { color: #bb86fc; text-shadow: 0 0 20px #bb86fc; }
-        body.theme-midnight .target-time { color: #bb86fc; }
-        body.theme-midnight .mode-btn.active { border-color: #bb86fc; color: #bb86fc; background: rgba(187,134,252,0.2); }
-        
-        /* Theme 6: Clean White (Professional) */
-        body.theme-clean {
-            background: #f8f9fa;
-            color: #212529;
-        }
-        body.theme-clean .game-container { background: transparent; }
-        body.theme-clean .how-to-play {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        body.theme-clean .how-to-play h2 { color: #2c3e66; }
-        body.theme-clean .how-to-play ol { color: #495057; }
-        body.theme-clean .registration h2 { color: #2c3e66; }
-        body.theme-clean .mode-btn {
-            background: #ffffff;
-            border-color: #dee2e6;
-            color: #495057;
-        }
-        body.theme-clean .mode-btn.active {
-            border-color: #2c3e66;
-            background: #e9ecef;
-            color: #2c3e66;
-        }
-        body.theme-clean .player-input-row, 
-        body.theme-clean .team-row {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        body.theme-clean .player-input, 
-        body.theme-clean .team-name-input, 
-        body.theme-clean .member-name-input {
-            background: #ffffff;
-            border: 1px solid #dee2e6;
-            color: #212529;
-        }
-        body.theme-clean .player-input:focus, 
-        body.theme-clean .team-name-input:focus, 
-        body.theme-clean .member-name-input:focus {
-            border-color: #2c3e66;
-            outline: none;
-        }
-        body.theme-clean .start-game-btn {
-            background: linear-gradient(135deg, #2c3e66, #1a2a44);
-            color: #ffffff;
-        }
-        body.theme-clean .current-player {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-        }
-        body.theme-clean .target-display {
-            background: #ffffff;
-            border: 2px solid #e9ecef;
-        }
-        body.theme-clean .target-label { color: #6c757d; }
-        body.theme-clean .target-time { color: #2c3e66; text-shadow: none; }
-        body.theme-clean .timer-display { color: #2c3e66; }
-        body.theme-clean .timer-display.running { color: #28a745; text-shadow: none; }
-        body.theme-clean .timer-display.stopped { color: #dc3545; text-shadow: none; }
-        body.theme-clean .start-btn { background: linear-gradient(135deg, #28a745, #218838); color: #fff; }
-        body.theme-clean .stop-btn { background: linear-gradient(135deg, #dc3545, #c82333); color: #fff; }
-        body.theme-clean .leaderboard {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-        }
-        body.theme-clean .leaderboard-item {
-            background: #f8f9fa;
-            border-right-color: #2c3e66 !important;
-        }
-        body.theme-clean .leaderboard h3 { color: #2c3e66; }
-        body.theme-clean .status-message { color: #6c757d; }
-        body.theme-clean .round-indicator { color: #2c3e66; }
-        body.theme-clean .ai-indicator { color: #6c757d; }
-        body.theme-clean .team-mode-indicator, 
-        body.theme-clean .ai-mode-indicator {
-            background: #e9ecef;
-            border-color: #dee2e6;
-            color: #495057;
-        }
-        body.theme-clean .winner-announcement {
-            background: #f8f9fa;
-            border-color: #ffc107;
-        }
-        body.theme-clean .points-badge {
-            background: linear-gradient(135deg, #ffc107, #e0a800);
-            color: #212529;
-        }
-        body.theme-clean .final-score-card {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-        }
-        body.theme-clean .delete-btn {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
+            transition: all 0.5s ease;
         }
         
         .game-container {
@@ -168,88 +42,19 @@
             flex-direction: column;
             padding: 10px 15px;
             max-width: 100%;
-            position: relative;
-            z-index: 1;
         }
-        
-        /* Theme Selector on Top */
-        .theme-selector-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(12px);
-            border-radius: 50px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid rgba(255,255,255,0.2);
-            flex-shrink: 0;
-        }
-        
-        body.theme-clean .theme-selector-container {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .theme-option {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid rgba(255,255,255,0.5);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        
-        body.theme-clean .theme-option {
-            border: 2px solid #dee2e6;
-        }
-        
-        .theme-option:hover {
-            transform: scale(1.1);
-        }
-        
-        .theme-option.active {
-            border: 3px solid gold;
-            transform: scale(1.1);
-            box-shadow: 0 0 12px gold;
-        }
-        
-        body.theme-clean .theme-option.active {
-            border: 3px solid #2c3e66;
-            box-shadow: 0 0 12px rgba(44,62,102,0.3);
-        }
-        
-        .theme-galaxy-color { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
-        .theme-ocean-color { background: linear-gradient(135deg, #001f3f, #005f73, #0a9396); }
-        .theme-sunset-color { background: linear-gradient(135deg, #ff4d4d, #ff9f4a, #ffe15d); }
-        .theme-forest-color { background: linear-gradient(135deg, #0b3b2f, #1b5e3f, #2e7d64); }
-        .theme-midnight-color { background: linear-gradient(135deg, #0b0b1a, #1a1a2f, #16213e); }
-        .theme-clean-color { background: linear-gradient(135deg, #f8f9fa, #e9ecef, #dee2e6); border: 1px solid #ced4da; }
         
         h1 {
             text-align: center;
             font-size: 1.5rem;
             margin-bottom: 5px;
-            background: linear-gradient(90deg, #00f5ff, #ff00ff, #ffd700);
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shine 3s linear infinite;
             font-weight: 900;
             flex-shrink: 0;
-        }
-        
-        body.theme-clean h1 {
-            background: linear-gradient(90deg, #2c3e66, #1a2a44, #2c3e66);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         
         @keyframes shine {
@@ -264,10 +69,6 @@
             flex-shrink: 0;
         }
         
-        body.theme-clean .subtitle {
-            color: #6c757d;
-        }
-        
         .how-to-play {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
             border: 1px solid rgba(255, 215, 0, 0.3);
@@ -278,7 +79,7 @@
         }
         
         .how-to-play h2 {
-            color: #ffd700;
+            color: var(--accent);
             font-size: 0.95rem;
             margin-bottom: 8px;
             display: flex;
@@ -286,23 +87,92 @@
             gap: 8px;
         }
         
-        body.theme-clean .how-to-play h2 {
-            color: #2c3e66;
-        }
-        
         .how-to-play ol {
             padding-right: 18px;
             font-size: 0.75rem;
-            line-height: 1.6;
+            line-height: 1.5;
             color: #e0e0e0;
         }
         
-        body.theme-clean .how-to-play ol {
-            color: #495057;
+        .how-to-play li {
+            margin-bottom: 3px;
         }
         
-        .how-to-play li {
-            margin-bottom: 4px;
+        /* Theme Selector Styles */
+        .theme-selector {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        
+        .theme-selector h3 {
+            color: #fff;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .theme-options {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .theme-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-btn.active {
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .theme-btn::after {
+            content: attr(data-name);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            font-size: 0.6rem;
+            padding: 2px;
+            text-align: center;
+        }
+        
+        .theme-neon {
+            background: linear-gradient(135deg, #00f5ff, #ff00ff, #ffd700);
+        }
+        
+        .theme-sunset {
+            background: linear-gradient(135deg, #ff5da2, #00e5ff, #7cff6b);
+        }
+        
+        .theme-forest {
+            background: linear-gradient(135deg, #ffffff, #1e3a5f, #0f2744);
+        }
+        
+        .theme-gold {
+            background: linear-gradient(135deg, #d4af37, #ff6f00, #5bc0be);
+        }
+        
+        .theme-ice {
+            background: linear-gradient(135deg, #1c7ed6, #74c0fc, #e7f5ff);
         }
         
         .registration {
@@ -313,7 +183,7 @@
         }
         
         .registration h2 {
-            color: #00f5ff;
+            color: var(--primary);
             font-size: 1rem;
             margin-bottom: 10px;
             text-align: center;
@@ -342,9 +212,9 @@
         }
         
         .mode-btn.active {
-            border-color: #00f5ff;
+            border-color: var(--primary);
             background: rgba(0, 245, 255, 0.2);
-            color: #00f5ff;
+            color: var(--primary);
         }
         
         .players-input, .teams-input, .single-input {
@@ -403,8 +273,8 @@
         }
         
         .player-number, .team-number {
-            background: linear-gradient(135deg, #00f5ff, #00a8ff);
-            color: #0f0c29;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-start);
             width: 28px;
             height: 28px;
             border-radius: 50%;
@@ -417,7 +287,7 @@
         }
         
         .team-number {
-            background: linear-gradient(135deg, #ff00ff, #ff0066);
+            background: linear-gradient(135deg, var(--secondary), #ff0066);
         }
         
         .player-input, .team-name-input, .member-name-input {
@@ -443,7 +313,7 @@
         }
         
         .player-input:focus, .team-name-input:focus, .member-name-input:focus {
-            border-color: #00f5ff;
+            border-color: var(--primary);
         }
         
         .color-picker {
@@ -460,7 +330,7 @@
             height: 28px;
             border: none;
             background: rgba(255, 68, 68, 0.2);
-            color: #ff4444;
+            color: var(--danger);
             border-radius: 6px;
             cursor: pointer;
             font-size: 1rem;
@@ -491,6 +361,12 @@
             font-size: 0.85rem;
             margin-bottom: 10px;
             flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .add-player-btn:hover, .add-team-btn:hover, .add-member-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
         }
         
         .add-member-btn {
@@ -502,8 +378,8 @@
         
         .start-game-btn {
             padding: 14px;
-            background: linear-gradient(135deg, #00f5ff, #00a8ff);
-            color: #0f0c29;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-start);
             border: none;
             border-radius: 12px;
             font-family: 'Tajawal', sans-serif;
@@ -511,6 +387,11 @@
             font-weight: 700;
             cursor: pointer;
             flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+        
+        .start-game-btn:active {
+            transform: scale(0.98);
         }
         
         .game-section {
@@ -526,7 +407,7 @@
         .round-indicator {
             text-align: center;
             font-size: 1.2rem;
-            color: #00f5ff;
+            color: var(--primary);
             font-weight: 700;
             margin-bottom: 10px;
             flex-shrink: 0;
@@ -554,13 +435,13 @@
         
         .current-player-team {
             font-size: 0.85rem;
-            color: #ff00ff;
+            color: var(--secondary);
             margin-top: 3px;
         }
         
         .ai-indicator {
             font-size: 0.8rem;
-            color: #ff00ff;
+            color: var(--secondary);
             margin-top: 3px;
             font-style: italic;
         }
@@ -577,7 +458,7 @@
         
         .target-label {
             font-size: 0.8rem;
-            color: #ffd700;
+            color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -601,12 +482,12 @@
         }
         
         .timer-display.running {
-            color: #00f5ff;
+            color: var(--primary);
             text-shadow: 0 0 30px rgba(0, 245, 255, 0.6);
         }
         
         .timer-display.stopped {
-            color: #ff00ff;
+            color: var(--secondary);
             text-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
         }
         
@@ -635,12 +516,12 @@
         }
         
         .start-btn {
-            background: linear-gradient(135deg, #00f5ff, #00a8ff);
-            color: #0f0c29;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-start);
         }
         
         .stop-btn {
-            background: linear-gradient(135deg, #ff00ff, #ff0066);
+            background: linear-gradient(135deg, var(--secondary), #ff0066);
             color: #fff;
         }
         
@@ -675,7 +556,7 @@
         
         .winner-announcement {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
-            border: 2px solid #ffd700;
+            border: 2px solid var(--accent);
             border-radius: 12px;
             padding: 15px;
             text-align: center;
@@ -689,7 +570,7 @@
         }
         
         .winner-announcement h2 {
-            color: #ffd700;
+            color: var(--accent);
             font-size: 1.1rem;
             margin-bottom: 5px;
         }
@@ -701,7 +582,7 @@
         
         .points-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            background: linear-gradient(135deg, var(--accent), #ffaa00);
             color: #000;
             padding: 4px 12px;
             border-radius: 20px;
@@ -726,7 +607,7 @@
         }
         
         .final-score-card.winner {
-            border: 2px solid #ffd700;
+            border: 2px solid var(--accent);
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
         }
         
@@ -739,7 +620,7 @@
             position: absolute;
             top: -8px;
             right: -8px;
-            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            background: linear-gradient(135deg, var(--accent), #ffaa00);
             color: #000;
             width: 24px;
             height: 24px;
@@ -754,7 +635,7 @@
         
         .ai-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #ff00ff, #ff0066);
+            background: linear-gradient(135deg, var(--secondary), #ff0066);
             color: #fff;
             padding: 2px 8px;
             border-radius: 12px;
@@ -776,7 +657,7 @@
         .final-score-points {
             font-size: 1.1rem;
             font-weight: 700;
-            color: #ffd700;
+            color: var(--accent);
         }
         
         .leaderboard {
@@ -787,7 +668,7 @@
         }
         
         .leaderboard h3 {
-            color: #ffd700;
+            color: var(--accent);
             text-align: center;
             margin-bottom: 12px;
             font-size: 1rem;
@@ -805,7 +686,7 @@
         }
         
         .leaderboard-item.ai-item {
-            border-right-color: #ff00ff;
+            border-right-color: var(--secondary);
             background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(255, 255, 255, 0.05));
         }
         
@@ -821,7 +702,7 @@
             font-size: 0.8rem;
         }
         
-        .rank-1 { background: linear-gradient(135deg, #ffd700, #ffaa00); color: #000; }
+        .rank-1 { background: linear-gradient(135deg, var(--accent), #ffaa00); color: #000; }
         .rank-2 { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); color: #000; }
         .rank-3 { background: linear-gradient(135deg, #cd7f32, #b87333); color: #fff; }
         .rank-other { background: rgba(255, 255, 255, 0.1); color: #fff; }
@@ -843,7 +724,7 @@
         .leaderboard-points {
             text-align: left;
             font-weight: 700;
-            color: #ffd700;
+            color: var(--accent);
             font-size: 1.1rem;
         }
         
@@ -863,11 +744,12 @@
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
+            transition: transform 0.2s ease;
         }
         
         .next-btn {
-            background: linear-gradient(135deg, #00f5ff, #00a8ff);
-            color: #0f0c29;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-start);
         }
         
         .reset-btn {
@@ -878,8 +760,12 @@
         
         .back-btn {
             background: rgba(255, 68, 68, 0.2);
-            color: #ff4444;
+            color: var(--danger);
             border: 1px solid rgba(255, 68, 68, 0.3);
+        }
+        
+        .next-btn:active, .reset-btn:active, .back-btn:active {
+            transform: scale(0.98);
         }
         
         .hidden {
@@ -893,7 +779,7 @@
             padding: 8px 12px;
             text-align: center;
             font-size: 0.8rem;
-            color: #ff00ff;
+            color: var(--secondary);
             margin-bottom: 10px;
             flex-shrink: 0;
         }
@@ -901,7 +787,7 @@
         .ai-thinking {
             display: none;
             text-align: center;
-            color: #ff00ff;
+            color: var(--secondary);
             font-size: 0.9rem;
             margin-bottom: 10px;
             animation: blink 1s infinite;
@@ -928,18 +814,12 @@
             height: 40px;
             border-radius: 50%;
             border: none;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
             font-size: 1.2rem;
             cursor: pointer;
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        body.theme-clean .sound-btn {
-            background: #ffffff;
-            color: #2c3e66;
-            border: 1px solid #dee2e6;
         }
         
         .sound-btn.muted {
@@ -958,38 +838,12 @@
             padding: 12px;
             font-size: 0.9rem;
         }
-        
-        @media (max-width: 600px) {
-            .theme-selector-container { gap: 8px; padding: 6px 10px; }
-            .theme-option { width: 32px; height: 32px; }
-        }
-        
-        /* Additional step highlight */
-        .additional-step {
-            background: rgba(255, 215, 0, 0.2);
-            border-right: 3px solid #ffd700;
-            padding-right: 8px;
-            margin: 5px 0;
-        }
-        body.theme-clean .additional-step {
-            background: rgba(44, 62, 102, 0.08);
-            border-right-color: #2c3e66;
-        }
     </style>
+<base target="_blank">
 </head>
-<body class="theme-galaxy">
+<body>
     <div class="sound-toggle">
         <button class="sound-btn" id="soundBtn" onclick="toggleSound()">🔊</button>
-    </div>
-    
-    <!-- Theme Selector on Top -->
-    <div class="theme-selector-container">
-        <div class="theme-option theme-galaxy-color" onclick="changeTheme('galaxy')" title="جالاكسي"></div>
-        <div class="theme-option theme-ocean-color" onclick="changeTheme('ocean')" title="المحيط"></div>
-        <div class="theme-option theme-sunset-color" onclick="changeTheme('sunset')" title="غروب الشمس"></div>
-        <div class="theme-option theme-forest-color" onclick="changeTheme('forest')" title="الغابة"></div>
-        <div class="theme-option theme-midnight-color" onclick="changeTheme('midnight')" title="منتصف الليل"></div>
-        <div class="theme-option theme-clean-color" onclick="changeTheme('clean')" title="نظيف احترافي"></div>
     </div>
     
     <div class="game-container">
@@ -1000,7 +854,7 @@
             <h2>📋 كيفية اللعب</h2>
             <ol>
                 <li>اختر وضع: فردي أو لاعبين أو فرق</li>
-                <li class="additional-step"><strong>📱 ضع جوالك في المنتصف بين اللاعبين</strong></li>
+                <li>ضع جوالك في المنتصف بين اللاعبين</li>
                 <li>في وضع الفردي: العب ضد الذكاء الاصطناعي</li>
                 <li>في وضع الفرق: اختر عدد اللاعبين في كل فريق</li>
                 <li>10 جولات - كل جولة هدف مختلف</li>
@@ -1011,6 +865,18 @@
         
         <div class="registration" id="registrationSection">
             <h2>👥 التسجيل</h2>
+            
+            <!-- Theme Selector -->
+            <div class="theme-selector">
+                <h3>🎨 اختر الثيم</h3>
+                <div class="theme-options">
+                    <div class="theme-btn theme-neon active" data-name="نيون" onclick="setTheme('neon')" title="نيون سايبر"></div>
+                    <div class="theme-btn theme-sunset" data-name="غروب" onclick="setTheme('sunset')" title="فيبرويف غروب"></div>
+                    <div class="theme-btn theme-forest" data-name="احترافي" onclick="setTheme('forest')" title="نظيف احترافي"></div>
+                    <div class="theme-btn theme-gold" data-name="ذهبي" onclick="setTheme('gold')" title="ذهبي ملكي"></div>
+                    <div class="theme-btn theme-ice" data-name="جليدي" onclick="setTheme('ice')" title="ساحة الجليد"></div>
+                </div>
+            </div>
             
             <div class="mode-selector">
                 <button class="mode-btn" onclick="setMode('single')" id="singleMode">🤖 فردي</button>
@@ -1025,7 +891,7 @@
                     <input type="text" class="player-input" placeholder="اسم اللاعب" id="singlePlayer0">
                     <input type="color" class="color-picker" value="#00f5ff" id="singleColor0">
                 </div>
-                <div style="background: rgba(255,0,255,0.1); border: 1px solid rgba(255,0,255,0.3); border-radius: 10px; padding: 12px; text-align: center; color: #ff00ff; font-size: 0.9rem;">
+                <div style="background: rgba(255,0,255,0.1); border: 1px solid rgba(255,0,255,0.3); border-radius: 10px; padding: 12px; text-align: center; color: var(--secondary); font-size: 0.9rem;">
                     🤖 ستلعب ضد الذكاء الاصطناعي
                 </div>
             </div>
@@ -1076,111 +942,1439 @@
         
         <div class="game-section" id="gameSection">
             <div class="round-indicator" id="roundIndicator">الجولة 1</div>
-            <div class="team-mode-indicator hidden" id="teamModeIndicator">وضع الفرق - كل فرد يلعب دوره</div>
-            <div class="ai-mode-indicator hidden" id="aiModeIndicator">🤖 وضع اللعب ضد الذكاء الاصطناعي</div>
-            <div class="ai-thinking" id="aiThinking">🤖 الذكاء الاصطناعي يحسب موعد توقفه...</div>
+            
+            <div class="team-mode-indicator hidden" id="teamModeIndicator">
+                وضع الفرق - كل فرد يلعب دوره
+            </div>
+            
+            <div class="ai-mode-indicator hidden" id="aiModeIndicator">
+                🤖 وضع اللعب ضد الذكاء الاصطناعي
+            </div>
+            
+            <div class="ai-thinking" id="aiThinking">
+                🤖 الذكاء الاصطناعي يحسب موعد توقفه...
+            </div>
+            
             <div class="current-player">
                 <div class="current-player-label" id="currentPlayerLabel">الدور على</div>
                 <div class="current-player-name" id="currentPlayerName">-</div>
                 <div class="current-player-team hidden" id="currentPlayerTeam"></div>
                 <div class="ai-indicator hidden" id="aiIndicator"></div>
             </div>
-            <div class="target-display"><div class="target-label">الهدف</div><div class="target-time" id="targetTime">-.-s</div></div>
+            
+            <div class="target-display">
+                <div class="target-label">الهدف</div>
+                <div class="target-time" id="targetTime">-.-s</div>
+            </div>
+            
             <div class="timer-display" id="timerDisplay">0.000s</div>
+            
             <div class="controls">
                 <button class="game-btn start-btn" id="startBtn" onclick="startRound()">ابدأ ⏱️</button>
                 <button class="game-btn stop-btn" id="stopBtn" onclick="stopTimer()" disabled>قف! 🛑</button>
             </div>
+            
             <div class="status-message" id="statusMessage">اضغط "ابدأ"</div>
-            <div class="game-controls"><button class="back-btn" onclick="confirmBackToMenu()">🔙 العودة للقائمة</button></div>
+            
+            <!-- Back button during gameplay -->
+            <div class="game-controls">
+                <button class="back-btn" onclick="confirmBackToMenu()">🔙 العودة للقائمة</button>
+            </div>
         </div>
         
         <div class="results-section" id="resultsSection">
-            <div class="results-scroll"><div id="roundResults"></div><div class="leaderboard" id="leaderboard"><h3>🏆 الترتيب العام (النقاط)</h3><div id="leaderboardContent"></div></div></div>
-            <div class="action-buttons"><button class="next-btn" onclick="nextRound()" id="nextRoundBtn">التالية ⏭️</button><button class="back-btn" onclick="confirmBackToMenu()">🔙 القائمة</button></div>
+            <div class="results-scroll">
+                <div id="roundResults"></div>
+                <div class="leaderboard" id="leaderboard">
+                    <h3>🏆 الترتيب العام (النقاط)</h3>
+                    <div id="leaderboardContent"></div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="next-btn" onclick="nextRound()" id="nextRoundBtn">التالية ⏭️</button>
+                <button class="back-btn" onclick="confirmBackToMenu()">🔙 القائمة</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Theme Switcher Function
-        function changeTheme(themeName) {
-            const body = document.body;
-            body.classList.remove('theme-galaxy', 'theme-ocean', 'theme-sunset', 'theme-forest', 'theme-midnight', 'theme-clean');
-            body.classList.add(`theme-${themeName}`);
+        // Theme Management
+        const themes = {
+            neon: {
+                primary: '#00f5ff',
+                secondary: '#ff00ff',
+                accent: '#ffd700',
+                bgStart: '#0f0c29',
+                bgMid: '#302b63',
+                bgEnd: '#24243e',
+                danger: '#ff4444',
+                success: '#44ff44'
+            },
+            sunset: {
+                primary: '#ff5da2',
+                secondary: '#00e5ff',
+                accent: '#7cff6b',
+                bgStart: '#2b193d',
+                bgMid: '#1a0f2e',
+                bgEnd: '#0f0a1a',
+                danger: '#ff4444',
+                success: '#44ff44'
+            },
+            forest: {
+                primary: '#1e3a5f',
+                secondary: '#0f2744',
+                accent: '#d4af37',
+                bgStart: '#f8f9fa',
+                bgMid: '#e9ecef',
+                bgEnd: '#dee2e6',
+                danger: '#dc3545',
+                success: '#28a745',
+                text: '#212529',
+                textSecondary: '#495057',
+                textMuted: '#6c757d'
+            },
+            gold: {
+                primary: '#d4af37',
+                secondary: '#ff6f00',
+                accent: '#5bc0be',
+                bgStart: '#1a1423',
+                bgMid: '#2d1b4e',
+                bgEnd: '#1a1423',
+                danger: '#ff4444',
+                success: '#44ff44'
+            },
+            ice: {
+                primary: '#74c0fc',
+                secondary: '#1c7ed6',
+                accent: '#e7f5ff',
+                bgStart: '#0b1320',
+                bgMid: '#1c3d5a',
+                bgEnd: '#0b1320',
+                danger: '#ff6b6b',
+                success: '#51cf66'
+            }
+        };
+        
+        let currentTheme = 'neon';
+        
+        function setTheme(themeName) {
+            currentTheme = themeName;
+            const theme = themes[themeName];
+            const root = document.documentElement;
             
-            // Update active state in UI
-            document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active'));
-            const activeThemeEl = document.querySelector(`.theme-${themeName}-color`);
-            if (activeThemeEl) activeThemeEl.classList.add('active');
+            root.style.setProperty('--primary', theme.primary);
+            root.style.setProperty('--secondary', theme.secondary);
+            root.style.setProperty('--accent', theme.accent);
+            root.style.setProperty('--bg-start', theme.bgStart);
+            root.style.setProperty('--bg-mid', theme.bgMid);
+            root.style.setProperty('--bg-end', theme.bgEnd);
+            root.style.setProperty('--danger', theme.danger);
+            root.style.setProperty('--success', theme.success);
             
-            // Save preference in localStorage
-            localStorage.setItem('gameTheme', themeName);
+            // Update active state
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.theme-${themeName}`).classList.add('active');
+            
+            // Update color pickers default values based on theme
+            updateDefaultColors(themeName);
+            
+            // Update text color for light themes
+            if (themeName === 'forest') {
+                document.body.style.color = '#212529';
+                document.querySelectorAll('.player-input, .team-name-input, .member-name-input').forEach(input => {
+                    input.style.color = '#212529';
+                    input.style.background = 'rgba(255, 255, 255, 0.9)';
+                    input.style.borderColor = 'rgba(0, 0, 0, 0.2)';
+                });
+                document.querySelectorAll('.subtitle, .how-to-play li, .leaderboard-stats, .final-score-time').forEach(el => {
+                    el.style.color = '#495057';
+                });
+                document.querySelectorAll('.how-to-play h2').forEach(el => {
+                    el.style.color = '#1e3a5f';
+                });
+                document.querySelectorAll('.current-player-label').forEach(el => {
+                    el.style.color = '#6c757d';
+                });
+                document.querySelectorAll('.target-label').forEach(el => {
+                    el.style.color = '#d4af37';
+                });
+                document.querySelectorAll('.status-message').forEach(el => {
+                    el.style.color = '#212529';
+                });
+                document.querySelectorAll('.registration h2').forEach(el => {
+                    el.style.color = '#1e3a5f';
+                });
+                document.querySelectorAll('.theme-selector h3').forEach(el => {
+                    el.style.color = '#212529';
+                });
+                document.querySelectorAll('.mode-btn').forEach(el => {
+                    el.style.color = '#212529';
+                    el.style.borderColor = 'rgba(0, 0, 0, 0.2)';
+                });
+                document.querySelectorAll('.mode-btn.active').forEach(el => {
+                    el.style.color = '#1e3a5f';
+                    el.style.borderColor = '#1e3a5f';
+                    el.style.background = 'rgba(30, 58, 95, 0.1)';
+                });
+                document.querySelectorAll('.add-player-btn, .add-team-btn, .add-member-btn').forEach(el => {
+                    el.style.color = '#6c757d';
+                    el.style.borderColor = 'rgba(0, 0, 0, 0.3)';
+                });
+                document.querySelectorAll('.round-indicator').forEach(el => {
+                    el.style.color = '#1e3a5f';
+                });
+                document.querySelectorAll('.team-mode-indicator, .ai-mode-indicator').forEach(el => {
+                    el.style.color = '#0f2744';
+                    el.style.background = 'linear-gradient(135deg, rgba(30, 58, 95, 0.15), rgba(15, 39, 68, 0.1))';
+                    el.style.borderColor = 'rgba(30, 58, 95, 0.3)';
+                });
+                document.querySelectorAll('.leaderboard h3').forEach(el => {
+                    el.style.color = '#d4af37';
+                });
+                document.querySelectorAll('.delete-btn').forEach(el => {
+                    el.style.color = '#dc3545';
+                    el.style.background = 'rgba(220, 53, 69, 0.1)';
+                });
+                document.querySelectorAll('.player-number').forEach(el => {
+                    el.style.color = '#fff';
+                });
+                document.querySelectorAll('.team-number').forEach(el => {
+                    el.style.color = '#fff';
+                });
+                document.querySelectorAll('.member-number').forEach(el => {
+                    el.style.color = '#6c757d';
+                });
+                document.querySelectorAll('.timer-display').forEach(el => {
+                    el.style.color = '#1e3a5f';
+                    el.style.textShadow = '0 0 20px rgba(30, 58, 95, 0.3)';
+                });
+                document.querySelectorAll('.timer-display.running').forEach(el => {
+                    el.style.color = '#1e3a5f';
+                    el.style.textShadow = '0 0 30px rgba(30, 58, 95, 0.5)';
+                });
+                document.querySelectorAll('.timer-display.stopped').forEach(el => {
+                    el.style.color = '#0f2744';
+                    el.style.textShadow = '0 0 30px rgba(15, 39, 68, 0.4)';
+                });
+                document.querySelectorAll('.target-time').forEach(el => {
+                    el.style.color = '#212529';
+                    el.style.textShadow = '0 0 20px rgba(212, 175, 55, 0.3)';
+                });
+                document.querySelectorAll('.current-player-name').forEach(el => {
+                    el.style.color = '#1e3a5f';
+                });
+                document.querySelectorAll('.ai-indicator').forEach(el => {
+                    el.style.color = '#0f2744';
+                });
+            } else {
+                document.body.style.color = '#fff';
+                document.querySelectorAll('.player-input, .team-name-input, .member-name-input').forEach(input => {
+                    input.style.color = '#fff';
+                    input.style.background = 'rgba(255, 255, 255, 0.05)';
+                    input.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                });
+                document.querySelectorAll('.subtitle').forEach(el => {
+                    el.style.color = '#a0a0a0';
+                });
+                document.querySelectorAll('.how-to-play li').forEach(el => {
+                    el.style.color = '#e0e0e0';
+                });
+                document.querySelectorAll('.how-to-play h2').forEach(el => {
+                    el.style.color = '#ffd700';
+                });
+                document.querySelectorAll('.leaderboard-stats, .final-score-time').forEach(el => {
+                    el.style.color = '#888';
+                });
+                document.querySelectorAll('.current-player-label').forEach(el => {
+                    el.style.color = '#888';
+                });
+                document.querySelectorAll('.target-label').forEach(el => {
+                    el.style.color = '#ffd700';
+                });
+                document.querySelectorAll('.status-message').forEach(el => {
+                    el.style.color = '#fff';
+                });
+                document.querySelectorAll('.registration h2').forEach(el => {
+                    el.style.color = 'var(--primary)';
+                });
+                document.querySelectorAll('.theme-selector h3').forEach(el => {
+                    el.style.color = '#fff';
+                });
+                document.querySelectorAll('.mode-btn').forEach(el => {
+                    el.style.color = '#fff';
+                    el.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                    el.style.background = 'rgba(255, 255, 255, 0.05)';
+                });
+                document.querySelectorAll('.mode-btn.active').forEach(el => {
+                    el.style.color = 'var(--primary)';
+                    el.style.borderColor = 'var(--primary)';
+                    el.style.background = 'rgba(0, 245, 255, 0.2)';
+                });
+                document.querySelectorAll('.add-player-btn, .add-team-btn, .add-member-btn').forEach(el => {
+                    el.style.color = '#888';
+                    el.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                });
+                document.querySelectorAll('.round-indicator').forEach(el => {
+                    el.style.color = 'var(--primary)';
+                });
+                document.querySelectorAll('.team-mode-indicator, .ai-mode-indicator').forEach(el => {
+                    el.style.color = 'var(--secondary)';
+                    el.style.background = 'linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(255, 0, 255, 0.1))';
+                    el.style.borderColor = 'rgba(255, 0, 255, 0.3)';
+                });
+                document.querySelectorAll('.leaderboard h3').forEach(el => {
+                    el.style.color = 'var(--accent)';
+                });
+                document.querySelectorAll('.delete-btn').forEach(el => {
+                    el.style.color = 'var(--danger)';
+                    el.style.background = 'rgba(255, 68, 68, 0.2)';
+                });
+                document.querySelectorAll('.player-number').forEach(el => {
+                    el.style.color = 'var(--bg-start)';
+                });
+                document.querySelectorAll('.team-number').forEach(el => {
+                    el.style.color = 'var(--bg-start)';
+                });
+                document.querySelectorAll('.member-number').forEach(el => {
+                    el.style.color = '#888';
+                });
+                document.querySelectorAll('.timer-display').forEach(el => {
+                    el.style.color = '#fff';
+                    el.style.textShadow = '0 0 30px rgba(255, 255, 255, 0.3)';
+                });
+                document.querySelectorAll('.timer-display.running').forEach(el => {
+                    el.style.color = 'var(--primary)';
+                    el.style.textShadow = '0 0 30px rgba(0, 245, 255, 0.6)';
+                });
+                document.querySelectorAll('.timer-display.stopped').forEach(el => {
+                    el.style.color = 'var(--secondary)';
+                    el.style.textShadow = '0 0 30px rgba(255, 0, 255, 0.6)';
+                });
+                document.querySelectorAll('.target-time').forEach(el => {
+                    el.style.color = '#fff';
+                    el.style.textShadow = '0 0 20px rgba(255, 215, 0, 0.5)';
+                });
+                document.querySelectorAll('.current-player-name').forEach(el => {
+                    el.style.color = '#fff';
+                });
+                document.querySelectorAll('.ai-indicator').forEach(el => {
+                    el.style.color = 'var(--secondary)';
+                });
+            }
         }
         
-        // Load saved theme on startup
-        const savedTheme = localStorage.getItem('gameTheme');
-        if (savedTheme && ['galaxy','ocean','sunset','forest','midnight','clean'].includes(savedTheme)) {
-            changeTheme(savedTheme);
-        } else {
-            changeTheme('galaxy');
+        function updateDefaultColors(themeName) {
+            const theme = themes[themeName];
+            const colors = [theme.primary, theme.secondary, theme.accent, theme.danger, theme.success];
+            
+            // Update existing color pickers
+            document.querySelectorAll('.color-picker').forEach((picker, index) => {
+                if (!picker.value || picker.value === '#00f5ff' || picker.value === '#ff00ff') {
+                    picker.value = colors[index % colors.length];
+                }
+            });
         }
-        
-        // Audio context (same as before)
+
+        // Premium Sound System using Web Audio API
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioCtx = null;
         let soundEnabled = true;
         
-        function initAudio() { if (!audioCtx) { audioCtx = new AudioContext(); } if (audioCtx.state === 'suspended') audioCtx.resume(); }
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+        
         function playSound(type) {
             if (!soundEnabled || !audioCtx) return;
+            
             const osc = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
             const filter = audioCtx.createBiquadFilter();
-            osc.connect(filter); filter.connect(gainNode); gainNode.connect(audioCtx.destination);
+            
+            osc.connect(filter);
+            filter.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
             const now = audioCtx.currentTime;
+            
             switch(type) {
-                case 'start': osc.type='sine'; osc.frequency.setValueAtTime(440,now); osc.frequency.exponentialRampToValueAtTime(880,now+0.1); filter.type='lowpass'; filter.frequency.setValueAtTime(2000,now); gainNode.gain.setValueAtTime(0.3,now); gainNode.gain.exponentialRampToValueAtTime(0.01,now+0.3); osc.start(now); osc.stop(now+0.3); break;
-                case 'stop': osc.type='sine'; osc.frequency.setValueAtTime(880,now); osc.frequency.exponentialRampToValueAtTime(440,now+0.2); filter.type='lowpass'; filter.frequency.setValueAtTime(3000,now); gainNode.gain.setValueAtTime(0.3,now); gainNode.gain.exponentialRampToValueAtTime(0.01,now+0.4); osc.start(now); osc.stop(now+0.4); break;
-                case 'tick': osc.type='triangle'; osc.frequency.setValueAtTime(200,now); filter.type='highpass'; filter.frequency.setValueAtTime(1000,now); gainNode.gain.setValueAtTime(0.05,now); gainNode.gain.exponentialRampToValueAtTime(0.01,now+0.05); osc.start(now); osc.stop(now+0.05); break;
-                case 'win': playChord([523.25,659.25,783.99,1046.50],now); break;
-                case 'lose': osc.type='sawtooth'; osc.frequency.setValueAtTime(300,now); osc.frequency.linearRampToValueAtTime(200,now+0.5); filter.type='lowpass'; filter.frequency.setValueAtTime(1000,now); gainNode.gain.setValueAtTime(0.2,now); gainNode.gain.linearRampToValueAtTime(0.01,now+0.5); osc.start(now); osc.stop(now+0.5); break;
-                case 'ai': osc.type='square'; osc.frequency.setValueAtTime(150,now); osc.frequency.linearRampToValueAtTime(100,now+0.1); filter.type='bandpass'; filter.frequency.setValueAtTime(800,now); gainNode.gain.setValueAtTime(0.1,now); gainNode.gain.linearRampToValueAtTime(0.01,now+0.1); osc.start(now); osc.stop(now+0.1); break;
+                case 'start':
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(440, now);
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.1);
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(2000, now);
+                    gainNode.gain.setValueAtTime(0.3, now);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                    break;
+                    
+                case 'stop':
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(880, now);
+                    osc.frequency.exponentialRampToValueAtTime(440, now + 0.2);
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(3000, now);
+                    gainNode.gain.setValueAtTime(0.3, now);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                    break;
+                    
+                case 'tick':
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(200, now);
+                    filter.type = 'highpass';
+                    filter.frequency.setValueAtTime(1000, now);
+                    gainNode.gain.setValueAtTime(0.05, now);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                    break;
+                    
+                case 'win':
+                    playChord([523.25, 659.25, 783.99, 1046.50], now);
+                    break;
+                    
+                case 'lose':
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.linearRampToValueAtTime(200, now + 0.5);
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(1000, now);
+                    gainNode.gain.setValueAtTime(0.2, now);
+                    gainNode.gain.linearRampToValueAtTime(0.01, now + 0.5);
+                    osc.start(now);
+                    osc.stop(now + 0.5);
+                    break;
+                    
+                case 'ai':
+                    osc.type = 'square';
+                    osc.frequency.setValueAtTime(150, now);
+                    osc.frequency.linearRampToValueAtTime(100, now + 0.1);
+                    filter.type = 'bandpass';
+                    filter.frequency.setValueAtTime(800, now);
+                    gainNode.gain.setValueAtTime(0.1, now);
+                    gainNode.gain.linearRampToValueAtTime(0.01, now + 0.1);
+                    osc.start(now);
+                    osc.stop(now + 0.1);
+                    break;
             }
         }
-        function playChord(frequencies, startTime) { frequencies.forEach((freq,i)=>{ const osc=audioCtx.createOscillator(); const gain=audioCtx.createGain(); osc.type='sine'; osc.frequency.value=freq; gain.gain.setValueAtTime(0.15,startTime); gain.gain.exponentialRampToValueAtTime(0.01,startTime+0.8); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(startTime+i*0.05); osc.stop(startTime+0.8); }); }
-        function toggleSound() { soundEnabled=!soundEnabled; document.getElementById('soundBtn').textContent=soundEnabled?'🔊':'🔇'; document.getElementById('soundBtn').classList.toggle('muted',!soundEnabled); if(soundEnabled) initAudio(); }
         
-        // Game variables
-        let players=[], teams=[], currentPlayerIndex=0, currentRound=1, TOTAL_ROUNDS=10, targetTime=0, startTime=0, timerInterval=null, isRunning=false, gameMode='players', maxPlayers=8, maxTeams=4, aiEnabled=false, aiPlayer=null, isAiTurn=false, tickInterval=null;
+        function playChord(frequencies, startTime) {
+            frequencies.forEach((freq, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.15, startTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, startTime + 0.8);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(startTime + i * 0.05);
+                osc.stop(startTime + 0.8);
+            });
+        }
         
-        function setMode(mode) { gameMode=mode; aiEnabled=(mode==='single'); document.getElementById('singleMode').classList.toggle('active',mode==='single'); document.getElementById('playersMode').classList.toggle('active',mode==='players'); document.getElementById('teamsMode').classList.toggle('active',mode==='teams'); document.getElementById('singleInput').classList.toggle('hidden',mode!=='single'); document.getElementById('playersInput').classList.toggle('hidden',mode!=='players'); document.getElementById('teamsInput').classList.toggle('hidden',mode!=='teams'); document.getElementById('addPlayerBtn').classList.toggle('hidden',mode!=='players'); document.getElementById('addTeamBtn').classList.toggle('hidden',mode!=='teams'); if(mode==='single') document.getElementById('singlePlayer0').value=''; }
-        function updatePlayerNumbers() { const rows=document.querySelectorAll('#playersInput .player-input-row'); rows.forEach((row,index)=>{ row.setAttribute('data-index',index); row.querySelector('.player-number').textContent=index+1; row.querySelector('.player-input').id='player'+index; row.querySelector('.player-input').placeholder='اللاعب '+(index+1); row.querySelector('.color-picker').id='color'+index; const delBtn=row.querySelector('.delete-btn'); delBtn.setAttribute('onclick','deletePlayer('+index+')'); delBtn.disabled=rows.length<=2; }); }
-        function updateTeamNumbers() { const rows=document.querySelectorAll('.team-row'); rows.forEach((row,index)=>{ row.setAttribute('data-index',index); row.querySelector('.team-number').textContent=index+1; row.querySelector('.team-name-input').id='teamName'+index; row.querySelector('.team-name-input').placeholder='اسم الفريق '+(index+1); row.querySelector('.color-picker').id='teamColor'+index; const delBtn=row.querySelector('.delete-btn'); delBtn.setAttribute('onclick','deleteTeam('+index+')'); delBtn.disabled=rows.length<=2; const memberInputs=row.querySelectorAll('.member-name-input'); memberInputs.forEach((input,mIndex)=>{ input.id='team'+index+'member'+mIndex; input.parentElement.querySelector('.member-number').textContent='فرد '+(mIndex+1); }); const addBtn=document.getElementById('addMemberBtn'+index); if(addBtn) addBtn.setAttribute('onclick','addMember('+index+')'); }); }
-        function addPlayer() { const container=document.getElementById('playersInput'); if(container.children.length>=maxPlayers) return; const colors=['#00f5ff','#ff00ff','#ffd700','#ff4444','#44ff44','#4444ff','#ff8844','#8844ff']; const row=document.createElement('div'); row.className='player-input-row'; row.setAttribute('data-index',container.children.length); row.innerHTML='<div class="player-number">'+(container.children.length+1)+'</div><input type="text" class="player-input" placeholder="اللاعب '+(container.children.length+1)+'" id="player'+container.children.length+'"><input type="color" class="color-picker" value="'+colors[container.children.length%colors.length]+'" id="color'+container.children.length+'"><button class="delete-btn" onclick="deletePlayer('+container.children.length+')">×</button>'; container.appendChild(row); updatePlayerNumbers(); if(container.children.length>=maxPlayers) document.getElementById('addPlayerBtn').style.display='none'; }
-        function addTeam() { const container=document.getElementById('teamsInput'); if(container.children.length>=maxTeams) return; const colors=['#00f5ff','#ff00ff','#ffd700','#ff4444','#44ff44','#4444ff','#ff8844','#8844ff']; const idx=container.children.length; const row=document.createElement('div'); row.className='team-row'; row.setAttribute('data-index',idx); row.innerHTML='<div class="team-header"><div class="team-number">'+(idx+1)+'</div><input type="text" class="team-name-input" placeholder="اسم الفريق '+(idx+1)+'" id="teamName'+idx+'"><input type="color" class="color-picker" value="'+colors[idx%colors.length]+'" id="teamColor'+idx+'"><button class="delete-btn" onclick="deleteTeam('+idx+')">×</button></div><div class="team-members" id="teamMembers'+idx+'"><div class="member-input"><span class="member-number">فرد 1</span><input type="text" class="member-name-input" placeholder="اسم الفرد الأول" id="team'+idx+'member0"></div><div class="member-input"><span class="member-number">فرد 2</span><input type="text" class="member-name-input" placeholder="اسم الفرد الثاني" id="team'+idx+'member1"></div></div><button class="add-member-btn" onclick="addMember('+idx+')" id="addMemberBtn'+idx+'">+ إضافة فرد للفريق</button>'; container.appendChild(row); updateTeamNumbers(); if(container.children.length>=maxTeams) document.getElementById('addTeamBtn').style.display='none'; }
-        function addMember(teamIndex) { const container=document.getElementById('teamMembers'+teamIndex); if(container.children.length>=8) return; const mIdx=container.children.length; const memberDiv=document.createElement('div'); memberDiv.className='member-input'; memberDiv.innerHTML='<span class="member-number">فرد '+(mIdx+1)+'</span><input type="text" class="member-name-input" placeholder="اسم الفرد" id="team'+teamIndex+'member'+mIdx+'"><button class="delete-btn" onclick="deleteMember('+teamIndex+','+mIdx+')" style="width:24px;height:24px;font-size:0.8rem;">×</button>'; container.appendChild(memberDiv); updateTeamNumbers(); if(container.children.length>=8) document.getElementById('addMemberBtn'+teamIndex).style.display='none'; }
-        function deleteMember(teamIndex, memberIndex) { const container=document.getElementById('teamMembers'+teamIndex); const members=container.querySelectorAll('.member-input'); if(members.length<=2) { alert('يجب أن يكون هناك فردان على الأقل في الفريق!'); return; } members[memberIndex].remove(); updateTeamNumbers(); document.getElementById('addMemberBtn'+teamIndex).style.display='block'; }
-        function deletePlayer(index) { const container=document.getElementById('playersInput'); const rows=container.querySelectorAll('.player-input-row'); if(rows.length<=2) { alert('يجب أن يكون هناك لاعبان على الأقل!'); return; } rows[index].remove(); updatePlayerNumbers(); document.getElementById('addPlayerBtn').style.display='block'; }
-        function deleteTeam(index) { const container=document.getElementById('teamsInput'); const rows=container.querySelectorAll('.team-row'); if(rows.length<=2) { alert('يجب أن يكون هناك فريقان على الأقل!'); return; } rows[index].remove(); updateTeamNumbers(); document.getElementById('addTeamBtn').style.display='block'; }
-        function createAIPlayer() { return { id:999, name:'🤖 الذكاء الاصطناعي', color:'#ff00ff', scores:[], points:0, totalDiff:0, isTeam:false, isAI:true }; }
-        function generateAIMove() { const variance=(Math.random()*3-1.5); let aiTime=parseFloat(targetTime)+variance; if(aiTime<0.5) aiTime=0.5; return aiTime.toFixed(3); }
-        function startTournament() { initAudio(); if(gameMode==='single') startSingleMode(); else if(gameMode==='players') startPlayersMode(); else startTeamsMode(); }
-        function startSingleMode() { const name=document.getElementById('singlePlayer0').value.trim(); if(!name) { alert('أدخل اسم اللاعب!'); return; } players=[{ id:0, name:name, color:document.getElementById('singleColor0').value, scores:[], points:0, totalDiff:0, isTeam:false, isAI:false }, createAIPlayer()]; teams=[]; startGame(); }
-        function startPlayersMode() { const rows=document.querySelectorAll('#playersInput .player-input-row'); players=[]; let hasEmpty=false; rows.forEach((row,idx)=>{ const name=row.querySelector('.player-input').value.trim(); if(!name) hasEmpty=true; else players.push({ id:idx, name:name, color:row.querySelector('.color-picker').value, scores:[], points:0, totalDiff:0, isTeam:false, isAI:false }); }); if(hasEmpty || players.length<2) { alert('أدخل اسم جميع اللاعبين (2 على الأقل)!'); return; } startGame(); }
-        function startTeamsMode() { const rows=document.querySelectorAll('.team-row'); teams=[]; players=[]; let hasEmpty=false; rows.forEach((row,idx)=>{ const teamName=row.querySelector('.team-name-input').value.trim(); if(!teamName) hasEmpty=true; const color=row.querySelector('.color-picker').value; const memberInputs=row.querySelectorAll('.member-name-input'); const members=[]; memberInputs.forEach((input,mIdx)=>{ const mName=input.value.trim(); if(!mName) hasEmpty=true; else members.push({ name:mName, memberIndex:mIdx }); }); if(teamName && members.length>=2){ const team={ id:idx, name:teamName, color:color, members:members, scores:[], points:0, totalDiff:0, isTeam:true, isAI:false }; teams.push(team); members.forEach(member=>{ players.push({ id:players.length, name:member.name, teamId:idx, teamName:teamName, color:color, scores:[], points:0, totalDiff:0, isTeam:true, memberIndex:member.memberIndex, isAI:false }); }); } }); if(hasEmpty || teams.length<2) { alert('أدخل جميع أسماء الفرق والأفراد (فريقان على الأقل)!'); return; } startGame(); }
-        function startGame() { document.getElementById('howToPlay').classList.add('hidden'); document.getElementById('registrationSection').classList.add('hidden'); document.getElementById('gameSection').classList.add('active'); if(gameMode==='teams') { document.getElementById('teamModeIndicator').classList.remove('hidden'); document.getElementById('currentPlayerTeam').classList.remove('hidden'); document.getElementById('currentPlayerLabel').textContent='الدور على (فرد)'; } if(aiEnabled) { document.getElementById('aiModeIndicator').classList.remove('hidden'); document.getElementById('aiIndicator').classList.remove('hidden'); } currentPlayerIndex=0; currentRound=1; startNewRound(); }
-        function startNewRound() { targetTime=(Math.random()*9+1).toFixed(2); document.getElementById('targetTime').textContent=targetTime+'s'; document.getElementById('timerDisplay').textContent='0.000s'; document.getElementById('timerDisplay').className='timer-display'; document.getElementById('roundIndicator').textContent='الجولة '+currentRound; document.getElementById('aiThinking').classList.remove('show'); updateCurrentPlayer(); document.getElementById('startBtn').disabled=false; document.getElementById('stopBtn').disabled=true; document.getElementById('statusMessage').textContent='الجولة '+currentRound+' - اضغط ابدأ'; const currentPlayer=players[currentPlayerIndex]; if(currentPlayer && currentPlayer.isAI) { isAiTurn=true; setTimeout(playAITurn,1000); } else isAiTurn=false; }
-        function updateCurrentPlayer() { const player=players[currentPlayerIndex]; if(!player) return; document.getElementById('currentPlayerName').textContent=player.name; document.getElementById('currentPlayerName').style.color=player.color; if(gameMode==='teams' && player.teamName) document.getElementById('currentPlayerTeam').textContent='فريق: '+player.teamName; document.getElementById('aiIndicator').textContent=player.isAI?'الذكاء الاصطناعي يلعب الآن...':(aiEnabled?'خصمك: الذكاء الاصطناعي':''); }
-        function playAITurn() { playSound('ai'); document.getElementById('startBtn').disabled=true; document.getElementById('aiThinking').classList.add('show'); document.getElementById('statusMessage').textContent='الذكاء الاصطناعي يختار موعد التوقف...'; setTimeout(()=>{ const aiTime=generateAIMove(); const diff=Math.abs(parseFloat(aiTime)-parseFloat(targetTime)); const player=players[currentPlayerIndex]; player.scores.push({ round:currentRound, time:aiTime, target:targetTime, diff:diff }); player.totalDiff+=diff; if(gameMode==='teams' && player.teamId!==undefined){ const team=teams.find(t=>t.id===player.teamId); if(team){ team.scores.push({ round:currentRound, memberIndex:player.memberIndex, memberName:player.name, time:aiTime, diff:diff }); team.totalDiff+=diff; } } playSound('stop'); document.getElementById('timerDisplay').textContent=aiTime+'s'; document.getElementById('timerDisplay').className='timer-display stopped'; document.getElementById('aiThinking').classList.remove('show'); document.getElementById('statusMessage').textContent='🤖 توقف عند '+aiTime+'s (فرق: '+diff.toFixed(3)+'s)'; currentPlayerIndex++; if(currentPlayerIndex<players.length){ setTimeout(()=>{ updateCurrentPlayer(); const np=players[currentPlayerIndex]; if(np.isAI) playAITurn(); else { document.getElementById('startBtn').disabled=false; document.getElementById('statusMessage').textContent='دور '+np.name+(np.teamName?' ('+np.teamName+')':''); } },1000); } else setTimeout(showRoundResults,1000); },1500+Math.random()*1000); }
-        function startRound() { if(isAiTurn) return; initAudio(); playSound('start'); startTime=performance.now(); isRunning=true; document.getElementById('timerDisplay').className='timer-display running'; document.getElementById('startBtn').disabled=true; document.getElementById('stopBtn').disabled=false; document.getElementById('statusMessage').textContent='اضغط "قف" عند الهدف!'; tickInterval=setInterval(()=>playSound('tick'),1000); timerInterval=setInterval(()=>{ const current=(performance.now()-startTime)/1000; document.getElementById('timerDisplay').textContent=current.toFixed(3)+'s'; },16); }
-        function stopTimer() { if(!isRunning||isAiTurn) return; clearInterval(timerInterval); clearInterval(tickInterval); isRunning=false; playSound('stop'); const endTime=performance.now(); const playerTime=((endTime-startTime)/1000).toFixed(3); const diff=Math.abs(parseFloat(playerTime)-parseFloat(targetTime)); const player=players[currentPlayerIndex]; player.scores.push({ round:currentRound, time:playerTime, target:targetTime, diff:diff }); player.totalDiff+=diff; if(gameMode==='teams' && player.teamId!==undefined){ const team=teams.find(t=>t.id===player.teamId); if(team){ team.scores.push({ round:currentRound, memberIndex:player.memberIndex, memberName:player.name, time:playerTime, diff:diff }); team.totalDiff+=diff; } } document.getElementById('timerDisplay').textContent=playerTime+'s'; document.getElementById('timerDisplay').className='timer-display stopped'; document.getElementById('stopBtn').disabled=true; currentPlayerIndex++; if(currentPlayerIndex<players.length){ setTimeout(()=>{ updateCurrentPlayer(); const np=players[currentPlayerIndex]; if(np.isAI) playAITurn(); else { document.getElementById('startBtn').disabled=false; document.getElementById('statusMessage').textContent='دور '+np.name+(np.teamName?' ('+np.teamName+')':''); } },500); } else setTimeout(showRoundResults,500); }
-        function showRoundResults() { document.getElementById('gameSection').classList.remove('active'); document.getElementById('resultsSection').classList.add('active'); let roundRankings,winners; if(gameMode==='single'||gameMode==='players'){ roundRankings=players.slice().sort((a,b)=>a.scores[a.scores.length-1].diff-b.scores[b.scores.length-1].diff); const winnerDiff=roundRankings[0].scores[roundRankings[0].scores.length-1].diff; winners=roundRankings.filter(p=>Math.abs(p.scores[p.scores.length-1].diff-winnerDiff)<0.001); winners.forEach(w=>w.points+=1); } else { roundRankings=teams.map(team=>{ const roundScores=team.scores.filter(s=>s.round===currentRound); const avgDiff=roundScores.reduce((sum,s)=>sum+s.diff,0)/roundScores.length; return {...team, roundAvgDiff:avgDiff}; }).sort((a,b)=>a.roundAvgDiff-b.roundAvgDiff); const winnerDiff=roundRankings[0].roundAvgDiff; winners=roundRankings.filter(t=>Math.abs(t.roundAvgDiff-winnerDiff)<0.001); winners.forEach(winner=>{ winner.points+=1; players.filter(p=>p.teamId===winner.id).forEach(p=>p.points+=1); }); } const humanPlayer=players.find(p=>!p.isAI); const humanWon=winners.some(w=>w.id===humanPlayer?.id||(w.isAI===humanPlayer?.isAI)); playSound(humanWon?'win':'lose'); let html=''; if(winners.length===1){ const winner=winners[0]; html+=`<div class="winner-announcement"><h2>🎉 فائز الجولة ${currentRound}</h2><div class="winner-name" style="color:${winner.color}">${winner.name}</div><div class="points-badge">+1 نقطة</div></div>`; } else { html+=`<div class="winner-announcement"><h2>🤝 تعادل في الجولة ${currentRound}!</h2><div class="winner-name" style="font-size:1.2rem;">${winners.map(w=>w.name).join(' و ')}</div><div class="points-badge">+1 لكل منهم</div></div>`; } html+='<div class="final-scores">'; if(gameMode==='single'||gameMode==='players'){ roundRankings.forEach(p=>{ const score=p.scores[p.scores.length-1]; const isWinner=winners.indexOf(p)!==-1; html+=`<div class="final-score-card ${isWinner?'winner':''} ${p.isAI?'ai-card':''}">${isWinner?'<div class="points-sticker">+1</div>':''}<div class="final-score-name" style="color:${p.color};">${p.isAI?'<span class="ai-badge">AI</span>':''}${p.name}</div><div class="final-score-time">${score.time}s | فرق: ${score.diff.toFixed(3)}s</div><div class="final-score-points">${p.points} نقطة</div></div>`; }); } else { roundRankings.forEach(team=>{ const roundScores=team.scores.filter(s=>s.round===currentRound); const avgTime=(roundScores.reduce((sum,s)=>sum+parseFloat(s.time),0)/roundScores.length).toFixed(3); const isWinner=winners.indexOf(team)!==-1; html+=`<div class="final-score-card ${isWinner?'winner':''}" style="grid-column: span 2;">${isWinner?'<div class="points-sticker">+1</div>':''}<div class="final-score-name" style="color:${team.color}; font-size:1rem;">${team.name}</div><div class="final-score-time">متوسط: ${avgTime}s | فرق: ${team.roundAvgDiff.toFixed(3)}s</div><div style="font-size:0.7rem;color:#888;">${roundScores.map(s=>s.memberName+': '+s.time+'s').join(' | ')}</div><div class="final-score-points">${team.points} نقطة</div></div>`; }); } html+='</div>'; document.getElementById('roundResults').innerHTML=html; updateLeaderboard(); const nextBtn=document.getElementById('nextRoundBtn'); if(currentRound>=TOTAL_ROUNDS){ nextBtn.textContent='النتائج النهائية 🏆'; nextBtn.onclick=showFinalResults; } else { nextBtn.textContent='الجولة '+(currentRound+1)+' ⏭️'; nextBtn.onclick=nextRound; } }
-        function updateLeaderboard() { let sorted=(gameMode==='single'||gameMode==='players')?players.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff):teams.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff); let html=''; sorted.forEach((item,index)=>{ const rankClass=index===0?'rank-1':index===1?'rank-2':index===2?'rank-3':'rank-other'; if(gameMode==='single'||gameMode==='players'){ html+=`<div class="leaderboard-item ${item.isAI?'ai-item':''}" style="border-right-color:${item.color}"><div class="leaderboard-rank ${rankClass}">${index+1}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color}">${item.isAI?'🤖 ':''}${item.name}</div><div class="leaderboard-stats">${item.points} فوز | مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div class="leaderboard-points">${item.points}</div></div>`; } else { html+=`<div class="leaderboard-item" style="border-right-color:${item.color}"><div class="leaderboard-rank ${rankClass}">${index+1}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color}">${item.name}</div><div class="leaderboard-stats">${item.members.map(m=>m.name).join('، ')}<br>${item.points} فوز | مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div class="leaderboard-points">${item.points}</div></div>`; } }); document.getElementById('leaderboardContent').innerHTML=html; }
-        function nextRound() { currentRound++; currentPlayerIndex=0; document.getElementById('gameSection').classList.add('active'); document.getElementById('resultsSection').classList.remove('active'); startNewRound(); }
-        function showFinalResults() { let finalRanking=(gameMode==='single'||gameMode==='players')?players.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff):teams.slice().sort((a,b)=>b.points!==a.points?b.points-a.points:a.totalDiff-b.totalDiff); const champion=finalRanking[0]; const humanPlayer=players.find(p=>!p.isAI); const humanWon=champion.id===humanPlayer?.id||(champion.isAI===humanPlayer?.isAI); playSound(humanWon?'win':'lose'); let html=`<div class="winner-announcement" style="padding:20px;"><h2>🏆 البطل النهائي 🏆</h2><div class="winner-name" style="color:${champion.color};font-size:2rem;">${champion.isAI?'🤖 ':''}${champion.name}</div><div class="points-badge" style="font-size:1.1rem;">${champion.points} / ${TOTAL_ROUNDS} نقطة</div></div>`; finalRanking.forEach((item,index)=>{ const medal=index===0?'🥇':index===1?'🥈':index===2?'🥉':(index+1)+'.'; if(gameMode==='single'||gameMode==='players'){ html+=`<div class="leaderboard-item ${item.isAI?'ai-item':''}" style="padding:12px;"><div style="font-size:1.5rem;margin-left:10px;">${medal}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color};">${item.isAI?'🤖 ':''}${item.name}</div><div class="leaderboard-stats">مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div style="font-weight:700;color:#ffd700;font-size:1.3rem;">${item.points}</div></div>`; } else { html+=`<div class="leaderboard-item" style="padding:12px;"><div style="font-size:1.5rem;margin-left:10px;">${medal}</div><div class="leaderboard-info"><div class="leaderboard-name" style="color:${item.color};">${item.name}</div><div class="leaderboard-stats">${item.members.map(m=>m.name).join('، ')}<br>مجموع الفروقات: ${item.totalDiff.toFixed(3)}s</div></div><div style="font-weight:700;color:#ffd700;font-size:1.3rem;">${item.points}</div></div>`; } }); document.getElementById('roundResults').innerHTML=html; document.getElementById('leaderboard').classList.add('hidden'); document.getElementById('nextRoundBtn').classList.add('hidden'); }
-        function confirmBackToMenu() { if(confirm('هل تريد العودة للقائمة الرئيسية؟ سيتم فقدان تقدم اللعبة الحالية.')) backToMenu(); }
-        function backToMenu() { if(timerInterval) clearInterval(timerInterval); if(tickInterval) clearInterval(tickInterval); isRunning=false; isAiTurn=false; players=[]; teams=[]; aiPlayer=null; currentPlayerIndex=0; currentRound=1; targetTime=0; startTime=0; aiEnabled=false; document.getElementById('gameSection').classList.remove('active'); document.getElementById('resultsSection').classList.remove('active'); document.getElementById('howToPlay').classList.remove('hidden'); document.getElementById('registrationSection').classList.remove('hidden'); document.getElementById('teamModeIndicator').classList.add('hidden'); document.getElementById('aiModeIndicator').classList.add('hidden'); document.getElementById('currentPlayerTeam').classList.add('hidden'); document.getElementById('aiIndicator').classList.add('hidden'); document.getElementById('aiThinking').classList.remove('show'); document.getElementById('currentPlayerLabel').textContent='الدور على'; document.getElementById('roundResults').innerHTML=''; document.getElementById('leaderboard').classList.remove('hidden'); const nextBtn=document.getElementById('nextRoundBtn'); nextBtn.textContent='التالية ⏭️'; nextBtn.onclick=nextRound; nextBtn.classList.remove('hidden'); setMode('players'); document.getElementById('singlePlayer0').value=''; }
-        document.addEventListener('touchstart',()=>{}, {passive:true}); document.addEventListener('keydown',e=>{ if(e.code==='Space'||e.code==='Enter'){ e.preventDefault(); if(document.getElementById('gameSection').classList.contains('active')){ if(!document.getElementById('startBtn').disabled && !isRunning && !isAiTurn) startRound(); else if(!document.getElementById('stopBtn').disabled && isRunning && !isAiTurn) stopTimer(); } } });
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('soundBtn').textContent = soundEnabled ? '🔊' : '🔇';
+            document.getElementById('soundBtn').classList.toggle('muted', !soundEnabled);
+            if (soundEnabled) initAudio();
+        }
+        
+        let players = [];
+        let teams = [];
+        let currentPlayerIndex = 0;
+        let currentRound = 1;
+        const TOTAL_ROUNDS = 10;
+        let targetTime = 0;
+        let startTime = 0;
+        let timerInterval = null;
+        let isRunning = false;
+        let gameMode = 'players';
+        let maxPlayers = 8;
+        let maxTeams = 4;
+        let aiEnabled = false;
+        let aiPlayer = null;
+        let isAiTurn = false;
+        let tickInterval = null;
+        
+        // Team member counts tracking
+        let teamMemberCounts = {};
+        
+        function setMode(mode) {
+            gameMode = mode;
+            aiEnabled = (mode === 'single');
+            
+            // Update button states
+            document.getElementById('singleMode').classList.toggle('active', mode === 'single');
+            document.getElementById('playersMode').classList.toggle('active', mode === 'players');
+            document.getElementById('teamsMode').classList.toggle('active', mode === 'teams');
+            
+            // Show/hide appropriate sections
+            document.getElementById('singleInput').classList.toggle('hidden', mode !== 'single');
+            document.getElementById('playersInput').classList.toggle('hidden', mode !== 'players');
+            document.getElementById('teamsInput').classList.toggle('hidden', mode !== 'teams');
+            
+            // Update button visibility
+            document.getElementById('addPlayerBtn').classList.toggle('hidden', mode !== 'players');
+            document.getElementById('addTeamBtn').classList.toggle('hidden', mode !== 'teams');
+            
+            // Reset single player input if switching to single mode
+            if (mode === 'single') {
+                document.getElementById('singlePlayer0').value = '';
+            }
+        }
+        
+        function updatePlayerNumbers() {
+            const rows = document.querySelectorAll('#playersInput .player-input-row');
+            rows.forEach((row, index) => {
+                row.setAttribute('data-index', index);
+                row.querySelector('.player-number').textContent = index + 1;
+                row.querySelector('.player-input').id = 'player' + index;
+                row.querySelector('.player-input').placeholder = 'اللاعب ' + (index + 1);
+                row.querySelector('.color-picker').id = 'color' + index;
+                
+                const deleteBtn = row.querySelector('.delete-btn');
+                deleteBtn.setAttribute('onclick', 'deletePlayer(' + index + ')');
+                deleteBtn.disabled = rows.length <= 2;
+            });
+        }
+        
+        function updateTeamNumbers() {
+            const rows = document.querySelectorAll('.team-row');
+            rows.forEach((row, index) => {
+                row.setAttribute('data-index', index);
+                row.querySelector('.team-number').textContent = index + 1;
+                row.querySelector('.team-name-input').id = 'teamName' + index;
+                row.querySelector('.team-name-input').placeholder = 'اسم الفريق ' + (index + 1);
+                row.querySelector('.color-picker').id = 'teamColor' + index;
+                
+                const deleteBtn = row.querySelector('.delete-btn');
+                deleteBtn.setAttribute('onclick', 'deleteTeam(' + index + ')');
+                deleteBtn.disabled = rows.length <= 2;
+                
+                // Update member IDs
+                const memberInputs = row.querySelectorAll('.member-name-input');
+                memberInputs.forEach((input, mIndex) => {
+                    input.id = 'team' + index + 'member' + mIndex;
+                    input.parentElement.querySelector('.member-number').textContent = 'فرد ' + (mIndex + 1);
+                });
+                
+                // Update add member button
+                const addBtn = document.getElementById('addMemberBtn' + index);
+                if (addBtn) {
+                    addBtn.setAttribute('onclick', 'addMember(' + index + ')');
+                }
+            });
+        }
+        
+        function addPlayer() {
+            const container = document.getElementById('playersInput');
+            const currentCount = container.children.length;
+            
+            if (currentCount >= maxPlayers) return;
+            
+            const theme = themes[currentTheme];
+            const colors = [theme.primary, theme.secondary, theme.accent, theme.danger, theme.success, '#4444ff', '#ff8844', '#8844ff'];
+            
+            const row = document.createElement('div');
+            row.className = 'player-input-row';
+            row.setAttribute('data-index', currentCount);
+            row.innerHTML = 
+                '<div class="player-number">' + (currentCount + 1) + '</div>' +
+                '<input type="text" class="player-input" placeholder="اللاعب ' + (currentCount + 1) + '" id="player' + currentCount + '">' +
+                '<input type="color" class="color-picker" value="' + colors[currentCount % colors.length] + '" id="color' + currentCount + '">' +
+                '<button class="delete-btn" onclick="deletePlayer(' + currentCount + ')">×</button>';
+            
+            container.appendChild(row);
+            updatePlayerNumbers();
+            
+            if (container.children.length >= maxPlayers) {
+                document.getElementById('addPlayerBtn').style.display = 'none';
+            }
+        }
+        
+        function addTeam() {
+            const container = document.getElementById('teamsInput');
+            const currentCount = container.children.length;
+            
+            if (currentCount >= maxTeams) return;
+            
+            const theme = themes[currentTheme];
+            const colors = [theme.primary, theme.secondary, theme.accent, theme.danger, theme.success, '#4444ff', '#ff8844', '#8844ff'];
+            
+            const row = document.createElement('div');
+            row.className = 'team-row';
+            row.setAttribute('data-index', currentCount);
+            row.innerHTML = 
+                '<div class="team-header">' +
+                    '<div class="team-number">' + (currentCount + 1) + '</div>' +
+                    '<input type="text" class="team-name-input" placeholder="اسم الفريق ' + (currentCount + 1) + '" id="teamName' + currentCount + '">' +
+                    '<input type="color" class="color-picker" value="' + colors[currentCount % colors.length] + '" id="teamColor' + currentCount + '">' +
+                    '<button class="delete-btn" onclick="deleteTeam(' + currentCount + ')">×</button>' +
+                '</div>' +
+                '<div class="team-members" id="teamMembers' + currentCount + '">' +
+                    '<div class="member-input"><span class="member-number">فرد 1</span><input type="text" class="member-name-input" placeholder="اسم الفرد الأول" id="team' + currentCount + 'member0"></div>' +
+                    '<div class="member-input"><span class="member-number">فرد 2</span><input type="text" class="member-name-input" placeholder="اسم الفرد الثاني" id="team' + currentCount + 'member1"></div>' +
+                '</div>' +
+                '<button class="add-member-btn" onclick="addMember(' + currentCount + ')" id="addMemberBtn' + currentCount + '">+ إضافة فرد للفريق</button>';
+            
+            container.appendChild(row);
+            updateTeamNumbers();
+            
+            if (container.children.length >= maxTeams) {
+                document.getElementById('addTeamBtn').style.display = 'none';
+            }
+        }
+        
+        function addMember(teamIndex) {
+            const container = document.getElementById('teamMembers' + teamIndex);
+            const currentCount = container.children.length;
+            
+            if (currentCount >= 8) return; // Max 8 members per team
+            
+            const memberDiv = document.createElement('div');
+            memberDiv.className = 'member-input';
+            memberDiv.innerHTML = 
+                '<span class="member-number">فرد ' + (currentCount + 1) + '</span>' +
+                '<input type="text" class="member-name-input" placeholder="اسم الفرد" id="team' + teamIndex + 'member' + currentCount + '">' +
+                '<button class="delete-btn" onclick="deleteMember(' + teamIndex + ', ' + currentCount + ')" style="width: 24px; height: 24px; font-size: 0.8rem;">×</button>';
+            
+            container.appendChild(memberDiv);
+            updateTeamNumbers();
+            
+            // Hide add button if max reached
+            if (container.children.length >= 8) {
+                document.getElementById('addMemberBtn' + teamIndex).style.display = 'none';
+            }
+        }
+        
+        function deleteMember(teamIndex, memberIndex) {
+            const container = document.getElementById('teamMembers' + teamIndex);
+            const members = container.querySelectorAll('.member-input');
+            
+            if (members.length <= 2) {
+                alert('يجب أن يكون هناك فردان على الأقل في الفريق!');
+                return;
+            }
+            
+            members[memberIndex].remove();
+            updateTeamNumbers();
+            
+            // Show add button again
+            document.getElementById('addMemberBtn' + teamIndex).style.display = 'block';
+        }
+        
+        function deletePlayer(index) {
+            const container = document.getElementById('playersInput');
+            const rows = container.querySelectorAll('.player-input-row');
+            
+            if (rows.length <= 2) {
+                alert('يجب أن يكون هناك لاعبان على الأقل!');
+                return;
+            }
+            
+            rows[index].remove();
+            updatePlayerNumbers();
+            
+            document.getElementById('addPlayerBtn').style.display = 'block';
+        }
+        
+        function deleteTeam(index) {
+            const container = document.getElementById('teamsInput');
+            const rows = container.querySelectorAll('.team-row');
+            
+            if (rows.length <= 2) {
+                alert('يجب أن يكون هناك فريقان على الأقل!');
+                return;
+            }
+            
+            rows[index].remove();
+            updateTeamNumbers();
+            
+            document.getElementById('addTeamBtn').style.display = 'block';
+        }
+
+        function createAIPlayer() {
+            return {
+                id: 999,
+                name: '🤖 الذكاء الاصطناعي',
+                color: themes[currentTheme].secondary,
+                scores: [],
+                points: 0,
+                totalDiff: 0,
+                isTeam: false,
+                isAI: true
+            };
+        }
+        
+        function createAITeam(memberCount) {
+            const members = [];
+            for (let i = 0; i < memberCount; i++) {
+                members.push({
+                    name: 'AI-' + (i + 1),
+                    memberIndex: i
+                });
+            }
+            
+            return {
+                id: 999,
+                name: '🤖 فريق الذكاء الاصطناعي',
+                color: themes[currentTheme].secondary,
+                members: members,
+                scores: [],
+                points: 0,
+                totalDiff: 0,
+                isTeam: true,
+                isAI: true
+            };
+        }
+        
+        function generateAIMove() {
+            const variance = (Math.random() * 3 - 1.5);
+            let aiTime = parseFloat(targetTime) + variance;
+            if (aiTime < 0.5) aiTime = 0.5;
+            return aiTime.toFixed(3);
+        }
+        
+        function startTournament() {
+            initAudio();
+            if (gameMode === 'single') {
+                startSingleMode();
+            } else if (gameMode === 'players') {
+                startPlayersMode();
+            } else {
+                startTeamsMode();
+            }
+        }
+        
+        function startSingleMode() {
+            const nameInput = document.getElementById('singlePlayer0');
+            const colorInput = document.getElementById('singleColor0');
+            const name = nameInput.value.trim();
+            
+            if (!name) {
+                nameInput.style.borderColor = themes[currentTheme].danger;
+                setTimeout(function() { nameInput.style.borderColor = ''; }, 1500);
+                alert('أدخل اسم اللاعب!');
+                return;
+            }
+            
+            players = [];
+            teams = [];
+            
+            // Add human player
+            players.push({
+                id: 0,
+                name: name,
+                color: colorInput.value,
+                scores: [],
+                points: 0,
+                totalDiff: 0,
+                isTeam: false,
+                isAI: false
+            });
+            
+            // Add AI player
+            aiPlayer = createAIPlayer();
+            players.push(aiPlayer);
+            
+            startGame();
+        }
+        
+        function startPlayersMode() {
+            const container = document.getElementById('playersInput');
+            const rows = container.querySelectorAll('.player-input-row');
+            
+            players = [];
+            teams = [];
+            let hasEmpty = false;
+            
+            rows.forEach((row, index) => {
+                const nameInput = row.querySelector('.player-input');
+                const colorInput = row.querySelector('.color-picker');
+                const name = nameInput.value.trim();
+                
+                if (!name) {
+                    hasEmpty = true;
+                    nameInput.style.borderColor = themes[currentTheme].danger;
+                    setTimeout(function() { nameInput.style.borderColor = ''; }, 1500);
+                } else {
+                    players.push({
+                        id: index,
+                        name: name,
+                        color: colorInput.value,
+                        scores: [],
+                        points: 0,
+                        totalDiff: 0,
+                        isTeam: false,
+                        isAI: false
+                    });
+                }
+            });
+            
+            if (hasEmpty) {
+                alert('أدخل اسم جميع اللاعبين!');
+                return;
+            }
+            
+            if (players.length < 2) {
+                alert('يلزم لاعبان على الأقل!');
+                return;
+            }
+            
+            startGame();
+        }
+        
+        function startTeamsMode() {
+            const container = document.getElementById('teamsInput');
+            const rows = container.querySelectorAll('.team-row');
+            
+            teams = [];
+            players = [];
+            let hasEmpty = false;
+            
+            rows.forEach((row, index) => {
+                const teamNameInput = row.querySelector('.team-name-input');
+                const colorInput = row.querySelector('.color-picker');
+                const teamName = teamNameInput.value.trim();
+                
+                if (!teamName) {
+                    hasEmpty = true;
+                    teamNameInput.style.borderColor = themes[currentTheme].danger;
+                    setTimeout(function() { teamNameInput.style.borderColor = ''; }, 1500);
+                }
+                
+                const memberInputs = row.querySelectorAll('.member-name-input');
+                const members = [];
+                
+                memberInputs.forEach((input, mIndex) => {
+                    const memberName = input.value.trim();
+                    if (!memberName) {
+                        hasEmpty = true;
+                        input.style.borderColor = themes[currentTheme].danger;
+                        setTimeout(function() { input.style.borderColor = ''; }, 1500);
+                    } else {
+                        members.push({
+                            name: memberName,
+                            memberIndex: mIndex
+                        });
+                    }
+                });
+                
+                if (teamName && members.length >= 2) {
+                    const team = {
+                        id: index,
+                        name: teamName,
+                        color: colorInput.value,
+                        members: members,
+                        scores: [],
+                        points: 0,
+                        totalDiff: 0,
+                        isTeam: true,
+                        isAI: false
+                    };
+                    teams.push(team);
+                    
+                    members.forEach(member => {
+                        players.push({
+                            id: players.length,
+                            name: member.name,
+                            teamId: index,
+                            teamName: teamName,
+                            color: colorInput.value,
+                            scores: [],
+                            points: 0,
+                            totalDiff: 0,
+                            isTeam: true,
+                            memberIndex: member.memberIndex,
+                            isAI: false
+                        });
+                    });
+                }
+            });
+            
+            if (hasEmpty) {
+                alert('أدخل جميع أسماء الفرق والأفراد!');
+                return;
+            }
+            
+            if (teams.length < 2) {
+                alert('يلزم فريقان على الأقل!');
+                return;
+            }
+            
+            startGame();
+        }
+        
+        function startGame() {
+            document.getElementById('howToPlay').classList.add('hidden');
+            document.getElementById('registrationSection').classList.add('hidden');
+            document.getElementById('gameSection').classList.add('active');
+            
+            if (gameMode === 'teams') {
+                document.getElementById('teamModeIndicator').classList.remove('hidden');
+                document.getElementById('currentPlayerTeam').classList.remove('hidden');
+                document.getElementById('currentPlayerLabel').textContent = 'الدور على (فرد)';
+            }
+            
+            if (aiEnabled) {
+                document.getElementById('aiModeIndicator').classList.remove('hidden');
+                document.getElementById('aiIndicator').classList.remove('hidden');
+            }
+            
+            currentPlayerIndex = 0;
+            currentRound = 1;
+            startNewRound();
+        }
+        
+        function startNewRound() {
+            targetTime = (Math.random() * 9 + 1).toFixed(2);
+            document.getElementById('targetTime').textContent = targetTime + 's';
+            document.getElementById('timerDisplay').textContent = '0.000s';
+            document.getElementById('timerDisplay').className = 'timer-display';
+            document.getElementById('roundIndicator').textContent = 'الجولة ' + currentRound;
+            document.getElementById('aiThinking').classList.remove('show');
+            
+            updateCurrentPlayer();
+            
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            document.getElementById('statusMessage').textContent = 'الجولة ' + currentRound + ' - اضغط ابدأ';
+            
+            const currentPlayer = players[currentPlayerIndex];
+            if (currentPlayer && currentPlayer.isAI) {
+                isAiTurn = true;
+                setTimeout(playAITurn, 1000);
+            } else {
+                isAiTurn = false;
+            }
+        }
+        
+        function updateCurrentPlayer() {
+            const player = players[currentPlayerIndex];
+            if (!player) return;
+            
+            const nameEl = document.getElementById('currentPlayerName');
+            nameEl.textContent = player.name;
+            nameEl.style.color = player.color;
+            
+            if (gameMode === 'teams' && player.teamName) {
+                document.getElementById('currentPlayerTeam').textContent = 'فريق: ' + player.teamName;
+            }
+            
+            if (player.isAI) {
+                document.getElementById('aiIndicator').textContent = 'الذكاء الاصطناعي يلعب الآن...';
+            } else {
+                document.getElementById('aiIndicator').textContent = aiEnabled ? 'خصمك: الذكاء الاصطناعي' : '';
+            }
+        }
+        
+        function playAITurn() {
+            playSound('ai');
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('aiThinking').classList.add('show');
+            document.getElementById('statusMessage').textContent = 'الذكاء الاصطناعي يختار موعد التوقف...';
+            
+            const thinkTime = 1500 + Math.random() * 1000;
+            
+            setTimeout(function() {
+                const aiTime = generateAIMove();
+                const diff = Math.abs(parseFloat(aiTime) - parseFloat(targetTime));
+                
+                const player = players[currentPlayerIndex];
+                player.scores.push({
+                    round: currentRound,
+                    time: aiTime,
+                    target: targetTime,
+                    diff: diff
+                });
+                player.totalDiff += diff;
+                
+                if (gameMode === 'teams' && player.teamId !== undefined) {
+                    const team = teams.find(function(t) { 
+                        return t.id === player.teamId || (t.isAI && player.isAI); 
+                    });
+                    if (team) {
+                        team.scores.push({
+                            round: currentRound,
+                            memberIndex: player.memberIndex,
+                            memberName: player.name,
+                            time: aiTime,
+                            diff: diff
+                        });
+                        team.totalDiff += diff;
+                    }
+                }
+                
+                playSound('stop');
+                document.getElementById('timerDisplay').textContent = aiTime + 's';
+                document.getElementById('timerDisplay').className = 'timer-display stopped';
+                document.getElementById('aiThinking').classList.remove('show');
+                document.getElementById('statusMessage').textContent = '🤖 توقف عند ' + aiTime + 's (فرق: ' + diff.toFixed(3) + 's)';
+                
+                currentPlayerIndex++;
+                
+                if (currentPlayerIndex < players.length) {
+                    setTimeout(function() {
+                        updateCurrentPlayer();
+                        const nextPlayer = players[currentPlayerIndex];
+                        
+                        if (nextPlayer.isAI) {
+                            playAITurn();
+                        } else {
+                            document.getElementById('startBtn').disabled = false;
+                            document.getElementById('statusMessage').textContent = 'دور ' + nextPlayer.name + (nextPlayer.teamName ? ' (' + nextPlayer.teamName + ')' : '');
+                        }
+                    }, 1000);
+                } else {
+                    setTimeout(showRoundResults, 1000);
+                }
+            }, thinkTime);
+        }
+        
+        function startRound() {
+            if (isAiTurn) return;
+            
+            initAudio();
+            playSound('start');
+            startTime = performance.now();
+            isRunning = true;
+            
+            document.getElementById('timerDisplay').className = 'timer-display running';
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('statusMessage').textContent = 'اضغط "قف" عند الهدف!';
+            
+            tickInterval = setInterval(function() {
+                playSound('tick');
+            }, 1000);
+            
+            timerInterval = setInterval(function() {
+                const current = (performance.now() - startTime) / 1000;
+                document.getElementById('timerDisplay').textContent = current.toFixed(3) + 's';
+            }, 16);
+        }
+        
+        function stopTimer() {
+            if (!isRunning || isAiTurn) return;
+            
+            clearInterval(timerInterval);
+            clearInterval(tickInterval);
+            isRunning = false;
+            
+            playSound('stop');
+            
+            const endTime = performance.now();
+            const playerTime = ((endTime - startTime) / 1000).toFixed(3);
+            const diff = Math.abs(parseFloat(playerTime) - parseFloat(targetTime));
+            
+            const player = players[currentPlayerIndex];
+            player.scores.push({
+                round: currentRound,
+                time: playerTime,
+                target: targetTime,
+                diff: diff
+            });
+            player.totalDiff += diff;
+            
+            if (gameMode === 'teams' && player.teamId !== undefined) {
+                const team = teams.find(function(t) { return t.id === player.teamId; });
+                if (team) {
+                    team.scores.push({
+                        round: currentRound,
+                        memberIndex: player.memberIndex,
+                        memberName: player.name,
+                        time: playerTime,
+                        diff: diff
+                    });
+                    team.totalDiff += diff;
+                }
+            }
+            
+            document.getElementById('timerDisplay').textContent = playerTime + 's';
+            document.getElementById('timerDisplay').className = 'timer-display stopped';
+            document.getElementById('stopBtn').disabled = true;
+            
+            currentPlayerIndex++;
+            
+            if (currentPlayerIndex < players.length) {
+                setTimeout(function() {
+                    updateCurrentPlayer();
+                    const nextPlayer = players[currentPlayerIndex];
+                    
+                    if (nextPlayer.isAI) {
+                        playAITurn();
+                    } else {
+                        document.getElementById('startBtn').disabled = false;
+                        document.getElementById('statusMessage').textContent = 'دور ' + nextPlayer.name + (nextPlayer.teamName ? ' (' + nextPlayer.teamName + ')' : '');
+                    }
+                }, 500);
+            } else {
+                setTimeout(showRoundResults, 500);
+            }
+        }
+
+        function showRoundResults() {
+            document.getElementById('gameSection').classList.remove('active');
+            document.getElementById('resultsSection').classList.add('active');
+            
+            let roundRankings;
+            let winners;
+            
+            if (gameMode === 'single' || gameMode === 'players') {
+                roundRankings = players.slice().sort(function(a, b) {
+                    const diffA = a.scores[a.scores.length - 1].diff;
+                    const diffB = b.scores[b.scores.length - 1].diff;
+                    return diffA - diffB;
+                });
+                
+                const winnerDiff = roundRankings[0].scores[roundRankings[0].scores.length - 1].diff;
+                winners = roundRankings.filter(function(p) {
+                    return Math.abs(p.scores[p.scores.length - 1].diff - winnerDiff) < 0.001;
+                });
+                
+                winners.forEach(function(winner) {
+                    winner.points += 1;
+                });
+            } else {
+                roundRankings = teams.map(function(team) {
+                    const roundScores = team.scores.filter(function(s) { return s.round === currentRound; });
+                    const avgDiff = roundScores.reduce(function(sum, s) { return sum + s.diff; }, 0) / roundScores.length;
+                    return Object.assign({}, team, { roundAvgDiff: avgDiff });
+                }).sort(function(a, b) {
+                    return a.roundAvgDiff - b.roundAvgDiff;
+                });
+                
+                const winnerDiff = roundRankings[0].roundAvgDiff;
+                winners = roundRankings.filter(function(t) {
+                    return Math.abs(t.roundAvgDiff - winnerDiff) < 0.001;
+                });
+                
+                winners.forEach(function(winner) {
+                    winner.points += 1;
+                    players.filter(function(p) { 
+                        return p.teamId === winner.id; 
+                    }).forEach(function(p) { 
+                        p.points += 1; 
+                    });
+                });
+            }
+            
+            // Play win/lose sound
+            const humanPlayer = players.find(function(p) { return !p.isAI; });
+            const humanWon = winners.some(function(w) { 
+                return w.id === humanPlayer.id || (w.isAI === humanPlayer.isAI); 
+            });
+            playSound(humanWon ? 'win' : 'lose');
+            
+            let resultsHTML = '';
+            
+            if (winners.length === 1) {
+                const winner = winners[0];
+                resultsHTML += 
+                    '<div class="winner-announcement">' +
+                        '<h2>🎉 فائز الجولة ' + currentRound + '</h2>' +
+                        '<div class="winner-name" style="color: ' + winner.color + '">' + winner.name + '</div>' +
+                        '<div class="points-badge">+1 نقطة</div>' +
+                    '</div>';
+            } else {
+                resultsHTML += 
+                    '<div class="winner-announcement">' +
+                        '<h2>🤝 تعادل في الجولة ' + currentRound + '!</h2>' +
+                        '<div class="winner-name" style="font-size: 1.2rem;">' + winners.map(function(w) { return w.name; }).join(' و ') + '</div>' +
+                        '<div class="points-badge">+1 لكل منهم</div>' +
+                    '</div>';
+            }
+            
+            resultsHTML += '<div class="final-scores">';
+            
+            if (gameMode === 'single' || gameMode === 'players') {
+                roundRankings.forEach(function(player) {
+                    const score = player.scores[player.scores.length - 1];
+                    const isWinner = winners.indexOf(player) !== -1;
+                    const isAI = player.isAI;
+                    
+                    resultsHTML += 
+                        '<div class="final-score-card ' + (isWinner ? 'winner' : '') + ' ' + (isAI ? 'ai-card' : '') + '">' +
+                            (isWinner ? '<div class="points-sticker">+1</div>' : '') +
+                            '<div class="final-score-name" style="color: ' + player.color + ';">' +
+                                (isAI ? '<span class="ai-badge">AI</span>' : '') + player.name +
+                            '</div>' +
+                            '<div class="final-score-time">' + score.time + 's | فرق: ' + score.diff.toFixed(3) + 's</div>' +
+                            '<div class="final-score-points">' + player.points + ' نقطة</div>' +
+                        '</div>';
+                });
+            } else {
+                roundRankings.forEach(function(team) {
+                    const roundScores = team.scores.filter(function(s) { return s.round === currentRound; });
+                    const avgTime = (roundScores.reduce(function(sum, s) { return sum + parseFloat(s.time); }, 0) / roundScores.length).toFixed(3);
+                    const isWinner = winners.indexOf(team) !== -1;
+                    
+                    resultsHTML += 
+                        '<div class="final-score-card ' + (isWinner ? 'winner' : '') + '" style="grid-column: span 2;">' +
+                            (isWinner ? '<div class="points-sticker">+1</div>' : '') +
+                            '<div class="final-score-name" style="color: ' + team.color + '; font-size: 1rem;">' +
+                                team.name +
+                            '</div>' +
+                            '<div class="final-score-time">متوسط: ' + avgTime + 's | فرق: ' + team.roundAvgDiff.toFixed(3) + 's</div>' +
+                            '<div style="font-size: 0.7rem; color: #888; margin-top: 3px;">' +
+                                roundScores.map(function(s) { return s.memberName + ': ' + s.time + 's'; }).join(' | ') +
+                            '</div>' +
+                            '<div class="final-score-points">' + team.points + ' نقطة</div>' +
+                        '</div>';
+                });
+            }
+            
+            resultsHTML += '</div>';
+            
+            document.getElementById('roundResults').innerHTML = resultsHTML;
+            updateLeaderboard();
+            
+            const nextBtn = document.getElementById('nextRoundBtn');
+            if (currentRound >= TOTAL_ROUNDS) {
+                nextBtn.textContent = 'النتائج النهائية 🏆';
+                nextBtn.onclick = showFinalResults;
+            } else {
+                nextBtn.textContent = 'الجولة ' + (currentRound + 1) + ' ⏭️';
+                nextBtn.onclick = nextRound;
+            }
+        }
+        
+        function updateLeaderboard() {
+            let sorted;
+            
+            if (gameMode === 'single' || gameMode === 'players') {
+                sorted = players.slice().sort(function(a, b) {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return a.totalDiff - b.totalDiff;
+                });
+            } else {
+                sorted = teams.slice().sort(function(a, b) {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return a.totalDiff - b.totalDiff;
+                });
+            }
+            
+            let html = '';
+            sorted.forEach(function(item, index) {
+                const rankClass = index === 0 ? 'rank-1' : index === 1 ? 'rank-2' : index === 2 ? 'rank-3' : 'rank-other';
+                const isAI = item.isAI;
+                
+                if (gameMode === 'single' || gameMode === 'players') {
+                    html += 
+                        '<div class="leaderboard-item ' + (isAI ? 'ai-item' : '') + '" style="border-right-color: ' + item.color + '">' +
+                            '<div class="leaderboard-rank ' + rankClass + '">' + (index + 1) + '</div>' +
+                            '<div class="leaderboard-info">' +
+                                '<div class="leaderboard-name" style="color: ' + item.color + '">' +
+                                    (isAI ? '🤖 ' : '') + item.name +
+                                '</div>' +
+                                '<div class="leaderboard-stats">' +
+                                    item.points + ' فوز | مجموع الفروقات: ' + item.totalDiff.toFixed(3) + 's' +
+                                '</div>' +
+                            '</div>' +
+                            '<div class="leaderboard-points">' + item.points + '</div>' +
+                        '</div>';
+                } else {
+                    const membersList = item.members.map(function(m) { return m.name; }).join('، ');
+                    html += 
+                        '<div class="leaderboard-item" style="border-right-color: ' + item.color + '">' +
+                            '<div class="leaderboard-rank ' + rankClass + '">' + (index + 1) + '</div>' +
+                            '<div class="leaderboard-info">' +
+                                '<div class="leaderboard-name" style="color: ' + item.color + '">' +
+                                    item.name +
+                                '</div>' +
+                                '<div class="leaderboard-stats" style="font-size: 0.65rem;">' +
+                                    membersList + '<br>' +
+                                    item.points + ' فوز | مجموع الفروقات: ' + item.totalDiff.toFixed(3) + 's' +
+                                '</div>' +
+                            '</div>' +
+                            '<div class="leaderboard-points">' + item.points + '</div>' +
+                        '</div>';
+                }
+            });
+            
+            document.getElementById('leaderboardContent').innerHTML = html;
+        }
+        
+        function nextRound() {
+            currentRound++;
+            currentPlayerIndex = 0;
+            document.getElementById('gameSection').classList.add('active');
+            document.getElementById('resultsSection').classList.remove('active');
+            startNewRound();
+        }
+        
+        function showFinalResults() {
+            let finalRanking;
+            
+            if (gameMode === 'single' || gameMode === 'players') {
+                finalRanking = players.slice().sort(function(a, b) {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return a.totalDiff - b.totalDiff;
+                });
+            } else {
+                finalRanking = teams.slice().sort(function(a, b) {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return a.totalDiff - b.totalDiff;
+                });
+            }
+            
+            const champion = finalRanking[0];
+            
+            const humanPlayer = players.find(function(p) { return !p.isAI; });
+            const humanWon = champion.id === humanPlayer.id || (champion.isAI === humanPlayer.isAI);
+            playSound(humanWon ? 'win' : 'lose');
+            
+            let html = 
+                '<div class="winner-announcement" style="padding: 20px; margin-bottom: 10px;">' +
+                    '<h2>🏆 البطل النهائي 🏆</h2>' +
+                    '<div class="winner-name" style="color: ' + champion.color + '; font-size: 2rem;">' +
+                        (champion.isAI ? '🤖 ' : '') + champion.name +
+                    '</div>' +
+                    '<div class="points-badge" style="font-size: 1.1rem; padding: 6px 16px;">' +
+                        champion.points + ' / ' + TOTAL_ROUNDS + ' نقطة' +
+                    '</div>' +
+                '</div>';
+            
+            html += '<div style="margin-bottom: 10px;">';
+            finalRanking.forEach(function(item, index) {
+                const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : (index + 1) + '.';
+                
+                if (gameMode === 'single' || gameMode === 'players') {
+                    html += 
+                        '<div class="leaderboard-item ' + (item.isAI ? 'ai-item' : '') + '" style="padding: 12px; margin-bottom: 8px;">' +
+                            '<div style="font-size: 1.5rem; margin-left: 10px;">' + medal + '</div>' +
+                            '<div class="leaderboard-info">' +
+                                '<div class="leaderboard-name" style="color: ' + item.color + ';">' +
+                                    (item.isAI ? '🤖 ' : '') + item.name +
+                                '</div>' +
+                                '<div class="leaderboard-stats">مجموع الفروقات: ' + item.totalDiff.toFixed(3) + 's</div>' +
+                            '</div>' +
+                            '<div style="font-weight: 700; color: var(--accent); font-size: 1.3rem;">' + item.points + '</div>' +
+                        '</div>';
+                } else {
+                    const membersList = item.members.map(function(m) { return m.name; }).join('، ');
+                    html += 
+                        '<div class="leaderboard-item" style="padding: 12px; margin-bottom: 8px;">' +
+                            '<div style="font-size: 1.5rem; margin-left: 10px;">' + medal + '</div>' +
+                            '<div class="leaderboard-info">' +
+                                '<div class="leaderboard-name" style="color: ' + item.color + ';">' +
+                                    item.name +
+                                '</div>' +
+                                '<div class="leaderboard-stats" style="font-size: 0.7rem;">' +
+                                    membersList + '<br>' +
+                                    'مجموع الفروقات: ' + item.totalDiff.toFixed(3) + 's' +
+                                '</div>' +
+                            '</div>' +
+                            '<div style="font-weight: 700; color: var(--accent); font-size: 1.3rem;">' + item.points + '</div>' +
+                        '</div>';
+                }
+            });
+            html += '</div>';
+            
+            document.getElementById('roundResults').innerHTML = html;
+            document.getElementById('leaderboard').classList.add('hidden');
+            document.getElementById('nextRoundBtn').classList.add('hidden');
+        }
+        
+        // Back to menu functionality
+        function confirmBackToMenu() {
+            if (confirm('هل تريد العودة للقائمة الرئيسية؟ سيتم فقدان تقدم اللعبة الحالية.')) {
+                backToMenu();
+            }
+        }
+        
+        function backToMenu() {
+            // Stop any running timers
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            if (tickInterval) {
+                clearInterval(tickInterval);
+                tickInterval = null;
+            }
+            
+            isRunning = false;
+            isAiTurn = false;
+            
+            // Reset game state
+            players = [];
+            teams = [];
+            aiPlayer = null;
+            currentPlayerIndex = 0;
+            currentRound = 1;
+            targetTime = 0;
+            startTime = 0;
+            aiEnabled = false;
+            
+            // Hide game sections
+            document.getElementById('gameSection').classList.remove('active');
+            document.getElementById('resultsSection').classList.remove('active');
+            
+            // Show registration
+            document.getElementById('howToPlay').classList.remove('hidden');
+            document.getElementById('registrationSection').classList.remove('hidden');
+            document.getElementById('registrationSection').style.display = '';
+            
+            // Reset indicators
+            document.getElementById('teamModeIndicator').classList.add('hidden');
+            document.getElementById('aiModeIndicator').classList.add('hidden');
+            document.getElementById('currentPlayerTeam').classList.add('hidden');
+            document.getElementById('aiIndicator').classList.add('hidden');
+            document.getElementById('aiThinking').classList.remove('show');
+            document.getElementById('currentPlayerLabel').textContent = 'الدور على';
+            
+            // Reset results
+            document.getElementById('roundResults').innerHTML = '';
+            document.getElementById('leaderboard').classList.remove('hidden');
+            
+            // Reset next button
+            const nextBtn = document.getElementById('nextRoundBtn');
+            nextBtn.textContent = 'التالية ⏭️';
+            nextBtn.onclick = nextRound;
+            nextBtn.classList.remove('hidden');
+            
+            // Reset mode to players (default)
+            setMode('players');
+            
+            // Clear single player input
+            document.getElementById('singlePlayer0').value = '';
+        }
+        
+        function resetGame() {
+            backToMenu();
+        }
+        
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                e.preventDefault();
+                if (document.getElementById('gameSection').classList.contains('active')) {
+                    const startBtn = document.getElementById('startBtn');
+                    const stopBtn = document.getElementById('stopBtn');
+                    
+                    if (!startBtn.disabled && !isRunning && !isAiTurn) {
+                        startRound();
+                    } else if (!stopBtn.disabled && isRunning && !isAiTurn) {
+                        stopTimer();
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
